@@ -77,13 +77,30 @@
     }
     footer { margin-top: 40px; color: var(--muted); font-size: .85rem; }
     footer a { color: var(--primary); }
+    .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+    .lang { display: flex; gap: 6px; }
+    .lang button {
+      font: inherit; font-size: .8rem; font-weight: 700;
+      padding: 5px 12px; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--outline); background: transparent; color: var(--muted);
+    }
+    .lang button.active {
+      background: var(--primary); color: var(--primary-ink); border-color: var(--primary);
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1>MISIA.SK APPS</h1>
-      <p>Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.</p>
+      <div class="topbar">
+        <h1>MISIA.SK APPS</h1>
+        <nav class="lang" aria-label="Language">
+          <button data-lang="sk" onclick="setLang('sk')">SK</button>
+          <button data-lang="cs" onclick="setLang('cs')">CS</button>
+          <button data-lang="en" onclick="setLang('en')">EN</button>
+        </nav>
+      </div>
+      <p data-i18n="tagline">Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.</p>
     </header>
 
     <!-- ============ Misia Akcie/Events ============ -->
@@ -92,10 +109,10 @@
         <img src="assets/events-icon.png" alt="Ikona Misia Akcie/Events">
         <div>
           <h2>Misia Akcie/Events</h2>
-          <div class="sub">Akcie, zhromaždenia a kázne — vždy poruke</div>
+          <div class="sub" data-i18n="eventsSub">Akcie, zhromaždenia a kázne — vždy poruke</div>
         </div>
       </div>
-      <p class="desc">
+      <p class="desc" data-i18n="eventsDesc">
         Informácie o najbližšej akcii a zhromaždeniach sú dostupné pre všetkých.
         Po prihlásení získate úplné informácie o akcii, MP3 nahrávky kázní
         a živé vysielania. K dispozícii v slovenčine, češtine a angličtine.
@@ -103,18 +120,19 @@
       <div class="buttons">
         <a class="btn primary" href="https://github.com/mirozahorak/misia-apps/releases/download/events-latest/misia-events.apk">
           <svg viewBox="0 0 24 24"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.7-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67c-.19-.29-.55-.37-.84-.22-.3.16-.42.54-.26.85L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
-          Stiahnuť pre Android (APK)
+          <span data-i18n="btnAndroid">Stiahnuť pre Android (APK)</span>
         </a>
         <a class="btn soon" href="#" onclick="return false" title="Aplikácia je v schvaľovacom procese App Store">
           <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          App Store — čoskoro
+          <span data-i18n="btnAppStore">App Store — čoskoro</span>
         </a>
         <a class="btn" href="https://nasa.misia.sk/events">
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.93 9h-3.02a15.7 15.7 0 0 0-1.18-5.24A8.03 8.03 0 0 1 19.93 11zM12 4.04c.86 1.16 1.61 3.06 1.9 5.96h-3.8c.29-2.9 1.04-4.8 1.9-5.96zM4.07 13h3.02c.14 1.9.55 3.71 1.18 5.24A8.03 8.03 0 0 1 4.07 13zm3.02-2H4.07a8.03 8.03 0 0 1 4.2-5.24A15.7 15.7 0 0 0 7.09 11zM12 19.96c-.86-1.16-1.61-3.06-1.9-5.96h3.8c-.29 2.9-1.04 4.8-1.9 5.96zm2.73-.72c.63-1.53 1.04-3.34 1.18-5.24h3.02a8.03 8.03 0 0 1-4.2 5.24z"/></svg>
-          Webová verzia <span style="font-weight:400;">&nbsp;(vyžaduje prihlásenie)</span>
+          <span data-i18n="btnWeb">Webová verzia</span>
+          <span style="font-weight:400;" data-i18n="btnWebNote">&nbsp;(vyžaduje prihlásenie)</span>
         </a>
       </div>
-      <p class="note">
+      <p class="note" data-i18n="apkNote">
         Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“.
         Po schválení bude aplikácia dostupná aj v App Store; verzia pre
         Google Play sa pripravuje.
@@ -141,5 +159,63 @@
       <p><a href="https://nasa.misia.sk">nasa.misia.sk</a></p>
     </footer>
   </div>
+
+  <script>
+    const I18N = {
+      sk: {
+        tagline: "Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.",
+        eventsSub: "Akcie, zhromaždenia a kázne — vždy poruke",
+        eventsDesc: "Informácie o najbližšej akcii a zhromaždeniach sú dostupné pre všetkých. Po prihlásení získate úplné informácie o akcii, MP3 nahrávky kázní a živé vysielania. K dispozícii v slovenčine, češtine a angličtine.",
+        btnAndroid: "Stiahnuť pre Android (APK)",
+        btnAppStore: "App Store — čoskoro",
+        btnWeb: "Webová verzia",
+        btnWebNote: "\u00a0(vyžaduje prihlásenie)",
+        apkNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Po schválení bude aplikácia dostupná aj v App Store; verzia pre Google Play sa pripravuje.",
+      },
+      cs: {
+        tagline: "Mobilní aplikace Misie — ke stažení pro Android a iOS.",
+        eventsSub: "Akce, shromáždění a kázání — vždy po ruce",
+        eventsDesc: "Informace o nejbližší akci a shromážděních jsou dostupné všem. Po přihlášení získáte úplné informace o akci, MP3 nahrávky kázání a živá vysílání. K dispozici ve slovenštině, češtině a angličtině.",
+        btnAndroid: "Stáhnout pro Android (APK)",
+        btnAppStore: "App Store — již brzy",
+        btnWeb: "Webová verze",
+        btnWebNote: "\u00a0(vyžaduje přihlášení)",
+        apkNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Po schválení bude aplikace dostupná i v App Store; verze pro Google Play se připravuje.",
+      },
+      en: {
+        tagline: "Misia mobile apps — downloads for Android and iOS.",
+        eventsSub: "Events, church services and sermons — always at hand",
+        eventsDesc: "Upcoming event and church-service info is open to everyone. Sign in for complete event information, MP3 sermon recordings and live broadcasts. Available in Slovak, Czech and English.",
+        btnAndroid: "Download for Android (APK)",
+        btnAppStore: "App Store — coming soon",
+        btnWeb: "Web version",
+        btnWebNote: "\u00a0(requires sign-in)",
+        apkNote: "When installing the APK, allow “Install from unknown sources”. Once approved the app will also be on the App Store; a Google Play version is in preparation.",
+      },
+    };
+
+    function setLang(lang) {
+      if (!I18N[lang]) lang = "sk";
+      document.documentElement.lang = lang;
+      for (const el of document.querySelectorAll("[data-i18n]")) {
+        const value = I18N[lang][el.dataset.i18n];
+        if (value !== undefined) el.textContent = value;
+      }
+      for (const btn of document.querySelectorAll(".lang button")) {
+        btn.classList.toggle("active", btn.dataset.lang === lang);
+      }
+      try { localStorage.setItem("lang", lang); } catch (_) {}
+    }
+
+    (function () {
+      let lang;
+      try { lang = localStorage.getItem("lang"); } catch (_) {}
+      if (!lang) {
+        const nav = (navigator.language || "sk").toLowerCase();
+        lang = nav.startsWith("cs") ? "cs" : nav.startsWith("en") ? "en" : "sk";
+      }
+      setLang(lang);
+    })();
+  </script>
 </body>
 </html>

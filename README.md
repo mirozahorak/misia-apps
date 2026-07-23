@@ -1,34 +1,80 @@
-# Misia Apps
+# MISIA.SK APPS
 
 Public download hub for Misia mobile apps.
 
 - **Website (GitHub Pages):** https://mirozahorak.github.io/misia-apps/
-- **APK downloads** are attached to GitHub Releases in this repo.
+- **Short links on nasa.misia.sk:** `https://nasa.misia.sk/app` (this page) and
+  `https://nasa.misia.sk/app/android` (direct APK download)
+- **APK hosting:** GitHub Releases in this repo — no server storage, no repo
+  bloat, GitHub's bandwidth.
 
-## Stable download URLs
+## How it works
 
-Each app has a *moving* release tag (`<app>-latest`) that always carries the
-newest APK, so links never change:
+The site is a single static `index.html` (no build step) served by GitHub
+Pages from the `main` branch. Every push to `main` redeploys it within a
+minute or two.
+
+APKs are attached to GitHub Releases. Each app has a **moving tag**
+(`<app>-latest`) that always carries its newest APK, which gives a permanent
+download URL:
 
 ```
 https://github.com/mirozahorak/misia-apps/releases/download/events-latest/misia-events.apk
 ```
 
-Versioned releases (`events-v1.2.0-6`, …) are kept for history.
+Versioned releases (`events-v1.2.0-6`, …) are kept as history.
+
+The page has a **language switcher** (SK / CS / EN). It picks the browser
+language on first visit and remembers the choice in `localStorage`.
 
 ## Publishing a new Events APK
 
 From the Flutter repo (`/Users/miro/event`):
 
+```bash
+scripts/publish_android.sh            # builds the APK if dist/ lacks it
+scripts/publish_android.sh --skip-build   # reuse an existing dist/ build
 ```
-scripts/publish_android.sh
-```
 
-This builds the release APK (if needed), creates a versioned release, and
-moves the `events-latest` tag to it.
+The script reads the version from `pubspec.yaml`, then:
 
-## Adding another app to the page
+1. creates (or updates) the versioned release `events-v<version>-<build>`,
+2. recreates the `events-latest` tag with the new APK.
 
-1. Add its icon to `assets/`.
-2. Copy the commented card template in `index.html` and fill it in.
-3. Publish its APK under its own moving tag, e.g. `keyer-latest`.
+Nothing on the website or nasa.misia.sk needs to change — the stable URL now
+serves the new build.
+
+## Editing the website
+
+1. Edit `index.html` (styles are inline in `<head>`, translations in the
+   `I18N` object at the bottom).
+2. Commit and push to `main`:
+
+   ```bash
+   git add -A && git commit -m "…" && git push
+   ```
+
+3. GitHub Pages redeploys automatically.
+
+## Adding another app
+
+1. Add its icon to `assets/` (256 px PNG is plenty).
+2. Copy the commented card template in `index.html` and fill it in. Give any
+   translatable text a `data-i18n="yourKey"` attribute and add `yourKey` to
+   all three languages in the `I18N` object.
+3. Publish its APK under its own moving tag, e.g.:
+
+   ```bash
+   gh release create keyer-latest path/to/misia-keyer.apk \
+     --title "Misia Keyer — latest Android" --notes "…" \
+     --repo mirozahorak/misia-apps
+   ```
+
+   and point the card's download button at
+   `…/releases/download/keyer-latest/misia-keyer.apk`.
+
+## Custom domain (optional)
+
+To serve the page as e.g. `apps.misia.sk`: add a `CNAME` DNS record pointing
+`apps.misia.sk` → `mirozahorak.github.io`, then set the custom domain in the
+repo's Pages settings (or `echo apps.misia.sk > CNAME` and push).
