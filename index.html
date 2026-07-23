@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Misia Apps — aplikácie</title>
+  <meta name="description" content="Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.">
+  <link rel="icon" href="assets/events-icon.png">
+  <style>
+    :root {
+      --bg: #f5f4ef;
+      --surface: #ffffff;
+      --ink: #1c2321;
+      --muted: #5c6662;
+      --primary: #0d5f4e;
+      --primary-ink: #ffffff;
+      --outline: #dcdad2;
+      --radius: 18px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #141917;
+        --surface: #1d2422;
+        --ink: #e8ece9;
+        --muted: #9aa5a0;
+        --primary: #7fd6bd;
+        --primary-ink: #10201b;
+        --outline: #2c3531;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
+    header { margin-bottom: 36px; }
+    header h1 { font-size: 2rem; letter-spacing: -0.02em; }
+    header p { color: var(--muted); margin-top: 6px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .app-head { display: flex; gap: 16px; align-items: center; }
+    .app-head img {
+      width: 72px; height: 72px; border-radius: 18px; flex: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,.12);
+    }
+    .app-head h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
+    .app-head .sub { color: var(--muted); font-size: .95rem; }
+    .desc { margin-top: 14px; color: var(--muted); }
+    .buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 18px; border-radius: 999px;
+      text-decoration: none; font-weight: 600; font-size: .95rem;
+      border: 1.5px solid var(--primary); color: var(--primary);
+      transition: transform .12s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn.primary { background: var(--primary); color: var(--primary-ink); }
+    .btn svg { width: 18px; height: 18px; fill: currentColor; }
+    .note { font-size: .85rem; color: var(--muted); margin-top: 12px; }
+    .soon { opacity: .75; }
+    .badge {
+      display: inline-block; font-size: .75rem; font-weight: 700;
+      letter-spacing: .04em; text-transform: uppercase;
+      color: var(--muted); border: 1px solid var(--outline);
+      border-radius: 999px; padding: 2px 10px; margin-left: 8px;
+      vertical-align: middle;
+    }
+    footer { margin-top: 40px; color: var(--muted); font-size: .85rem; }
+    footer a { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Misia Apps</h1>
+      <p>Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.</p>
+    </header>
+
+    <!-- ============ Misia Akcie/Events ============ -->
+    <section class="card">
+      <div class="app-head">
+        <img src="assets/events-icon.png" alt="Ikona Misia Akcie/Events">
+        <div>
+          <h2>Misia Akcie/Events</h2>
+          <div class="sub">Akcie, zhromaždenia a kázne — vždy poruke</div>
+        </div>
+      </div>
+      <p class="desc">
+        Informácie o najbližšej akcii a zhromaždeniach sú dostupné pre všetkých.
+        Po prihlásení získate úplné informácie o akcii, MP3 nahrávky kázní
+        a živé vysielania. K dispozícii v slovenčine, češtine a angličtine.
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="https://github.com/mirozahorak/misia-apps/releases/download/events-latest/misia-events.apk">
+          <svg viewBox="0 0 24 24"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.7-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67c-.19-.29-.55-.37-.84-.22-.3.16-.42.54-.26.85L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+          Stiahnuť pre Android (APK)
+        </a>
+        <a class="btn soon" href="#" onclick="return false" title="Aplikácia je v schvaľovacom procese App Store">
+          <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          App Store — čoskoro
+        </a>
+      </div>
+      <p class="note">
+        Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“.
+        Po schválení bude aplikácia dostupná aj v App Store; verzia pre
+        Google Play sa pripravuje.
+      </p>
+    </section>
+
+    <!-- ============ Add more apps here ============
+    <section class="card">
+      <div class="app-head">
+        <img src="assets/APP-icon.png" alt="">
+        <div>
+          <h2>APP NAME <span class="badge">beta</span></h2>
+          <div class="sub">SHORT TAGLINE</div>
+        </div>
+      </div>
+      <p class="desc">DESCRIPTION</p>
+      <div class="buttons">
+        <a class="btn primary" href="https://github.com/mirozahorak/misia-apps/releases/download/APP-latest/APP.apk">Stiahnuť pre Android (APK)</a>
+      </div>
+    </section>
+    ============================================== -->
+
+    <footer>
+      <p><a href="https://nasa.misia.sk">nasa.misia.sk</a></p>
+    </footer>
+  </div>
+</body>
+</html>
