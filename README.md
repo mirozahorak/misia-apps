@@ -8,6 +8,13 @@ Public download hub for Misia mobile apps.
 - **APK hosting:** GitHub Releases in this repo — no server storage, no repo
   bloat, GitHub's bandwidth.
 
+## Deploying an app
+
+**[DEPLOYING.md](DEPLOYING.md)** is the full playbook — Android release
+readiness (signing, icons, install verification), publishing to this hub,
+iOS/TestFlight via fastlane, and the privacy/support pages both stores
+require. Start there for any release.
+
 ## How it works
 
 The site is a single static `index.html` (no build step) served by GitHub
@@ -72,6 +79,17 @@ serves the new build.
 
    and point the card's download button at
    `…/releases/download/keyer-latest/misia-keyer.apk`.
+
+## Privacy & support pages
+
+Each app has store-required pages served from this repo:
+
+```
+<app>/privacy/index.html   → https://mirozahorak.github.io/misia-apps/<app>/privacy/
+<app>/support/index.html   → https://mirozahorak.github.io/misia-apps/<app>/support/
+```
+
+Use those URLs in App Store Connect and Google Play. See DEPLOYING.md §5.
 
 ## Custom domain (optional)
 
