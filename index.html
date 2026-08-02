@@ -77,6 +77,7 @@
     }
     footer { margin-top: 40px; color: var(--muted); font-size: .85rem; }
     footer a { color: var(--primary); }
+    .note a { color: var(--primary); font-weight: 600; }
     .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
     .lang { display: flex; gap: 6px; }
     .lang button {
@@ -153,7 +154,7 @@
       <div class="app-head">
         <img src="assets/songbook-icon.png" alt="Ikona Misia Songbook">
         <div>
-          <h2>Misia Songbook</h2>
+          <h2 data-i18n="songbookName">Misia Spevník/Songbook</h2>
           <div class="sub" data-i18n="songbookSub">Spevník — 2 633 piesní v šiestich jazykoch</div>
         </div>
       </div>
@@ -202,7 +203,6 @@
 
     <footer>
       <p><a href="https://nasa.misia.sk">nasa.misia.sk</a></p>
-      <p data-i18n="siteNote">Počty stiahnutí zaznamenávame anonymne — IP adresy neukladáme.</p>
     </footer>
   </div>
 
@@ -217,12 +217,12 @@
         btnWeb: "Webová verzia",
         btnWebNote: "\u00a0(vyžaduje prihlásenie)",
         latestVersion: "Aktuálna verzia",
+        songbookName: "Misia Spevník/Songbook",
         songbookSub: "Spevník — 2 633 piesní v šiestich jazykoch",
         songbookDesc: "Kresťanský spevník s piesňami v slovenčine, angličtine, francúzštine, svahilčine, lugande a kinyarwande. Celá zbierka je uložená v telefóne — funguje offline, bez internetu. Vyhľadávanie, obľúbené piesne, nastaviteľná veľkosť písma a tmavý režim.",
         songbookNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Aplikácia nepotrebuje žiadne povolenia ani prihlásenie.",
         linkPrivacy: "Ochrana súkromia",
         linkSupport: "Podpora",
-        siteNote: "Počty stiahnutí zaznamenávame anonymne — IP adresy neukladáme.",
         apkNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Po schválení bude aplikácia dostupná aj v App Store; verzia pre Google Play sa pripravuje.",
       },
       cs: {
@@ -234,12 +234,12 @@
         btnWeb: "Webová verze",
         btnWebNote: "\u00a0(vyžaduje přihlášení)",
         latestVersion: "Aktuální verze",
+        songbookName: "Misia Zpěvník/Songbook",
         songbookSub: "Zpěvník — 2 633 písní v šesti jazycích",
         songbookDesc: "Křesťanský zpěvník s písněmi ve slovenštině, angličtině, francouzštině, svahilštině, lugandě a kinyarwandě. Celá sbírka je uložená v telefonu — funguje offline, bez internetu. Vyhledávání, oblíbené písně, nastavitelná velikost písma a tmavý režim.",
         songbookNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Aplikace nepotřebuje žádná oprávnění ani přihlášení.",
         linkPrivacy: "Ochrana soukromí",
         linkSupport: "Podpora",
-        siteNote: "Počty stažení zaznamenáváme anonymně — IP adresy neukládáme.",
         apkNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Po schválení bude aplikace dostupná i v App Store; verze pro Google Play se připravuje.",
       },
       en: {
@@ -251,12 +251,12 @@
         btnWeb: "Web version",
         btnWebNote: "\u00a0(requires sign-in)",
         latestVersion: "Latest version",
+        songbookName: "Misia Songbook",
         songbookSub: "Songbook — 2,633 hymns in six languages",
         songbookDesc: "A Christian hymn songbook with songs in Slovak, English, French, Swahili, Luganda and Kinyarwanda. The whole collection is stored on your phone — it works offline, with no internet. Search, favourites, adjustable text size and dark mode.",
         songbookNote: "When installing the APK, allow “Install from unknown sources”. The app needs no permissions and no sign-in.",
         linkPrivacy: "Privacy",
         linkSupport: "Support",
-        siteNote: "Download counts are recorded anonymously — we do not store IP addresses.",
         apkNote: "When installing the APK, allow “Install from unknown sources”. Once approved the app will also be on the App Store; a Google Play version is in preparation.",
       },
     };
@@ -275,13 +275,10 @@
     }
 
     (function () {
+      // Slovak is the default; a visitor's explicit choice is remembered.
       let lang;
       try { lang = localStorage.getItem("lang"); } catch (_) {}
-      if (!lang) {
-        const nav = (navigator.language || "sk").toLowerCase();
-        lang = nav.startsWith("cs") ? "cs" : nav.startsWith("en") ? "en" : "sk";
-      }
-      setLang(lang);
+      setLang(lang || "sk");
     })();
   </script>
 </body>
