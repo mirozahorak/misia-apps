@@ -51,8 +51,6 @@ The script reads the version from `pubspec.yaml`, then:
 Nothing on the website or nasa.misia.sk needs to change — the stable URL now
 serves the new build.
 
-## Editing the website
-
 ## DeliveryTracker
 
 DeliveryTracker's card and [support page](deliverytracker/support/) are published
