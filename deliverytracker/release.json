@@ -1,3 +1,9 @@
 {
-  "available": false
+  "version": "1.0",
+  "version_code": 1,
+  "sha256": "ddbdd1fb281640f074a6dc9fcad6c2d5db306a3728e594f606d39626208b3200",
+  "certificate_sha256": "1745950dbc1c8abae4900df1fc74a5301ada597b2594071d50a8a5b0d0be4ff2",
+  "available": true,
+  "download_url": "https://github.com/mirozahorak/misia-apps/releases/download/deliverytracker-latest/misia-deliverytracker.apk",
+  "released_at": "2026-10-15T11:16:20+00:00"
 }
