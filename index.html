@@ -65,6 +65,7 @@
     }
     .btn:hover { transform: translateY(-1px); }
     .btn.primary { background: var(--primary); color: var(--primary-ink); }
+    .buttons [hidden] { display: none; }
     .btn svg { width: 18px; height: 18px; fill: currentColor; }
     .note { font-size: .85rem; color: var(--muted); margin-top: 12px; }
     .soon { opacity: .75; }
@@ -189,6 +190,31 @@
       </p>
     </section>
 
+    <!-- ============ DeliveryTracker ============ -->
+    <section class="card" id="deliverytracker">
+      <div class="app-head">
+        <img src="assets/deliverytracker-icon.png" alt="DeliveryTracker" width="72" height="72" loading="lazy">
+        <div>
+          <h2>DeliveryTracker</h2>
+          <div class="sub" data-i18n="deliverySub">Evidencia doručenia vybavenia zborom</div>
+        </div>
+      </div>
+      <p class="desc" data-i18n="deliveryDesc">Vybavenie, kontakty, fotografie a záznamy o inštalácii a školení. Po prvom online prihlásení môžete ukladať údaje aj bez internetu; čakajúce zmeny sa odošlú po obnovení pripojenia.</p>
+      <p class="note" id="deliverytracker-pending" data-i18n="deliveryPending">Verzia pre Android sa pripravuje. Stiahnutie bude dostupné po dokončení overenia.</p>
+      <div class="buttons">
+        <a class="btn primary" id="deliverytracker-download" href="https://github.com/mirozahorak/misia-apps/releases/download/deliverytracker-latest/misia-deliverytracker.apk" hidden>
+          <span data-i18n="btnAndroid">Stiahnuť pre Android (APK)</span>
+        </a>
+        <a class="btn" href="deliverytracker/support/" data-i18n="linkSupport">Podpora</a>
+      </div>
+      <p class="note" id="deliverytracker-release-info" hidden>
+        <span data-i18n="latestVersion">Aktuálna verzia</span>:
+        <strong id="deliverytracker-version"></strong>
+        · <span id="deliverytracker-version-date"></span>
+      </p>
+      <p class="note" data-i18n="deliveryNote">Android 8.0 a novší. Prístup vyžaduje osobný API kľúč od správcu a oprávnenie pre misijnú sekciu. Pred odinštalovaním synchronizujte všetky čakajúce zmeny.</p>
+    </section>
+
     <!-- ============ Add more apps here ============
     <section class="card">
       <div class="app-head">
@@ -213,6 +239,10 @@
   <script>
     const I18N = {
       sk: {
+        deliverySub: "Evidencia doručenia vybavenia zborom",
+        deliveryDesc: "Vybavenie, kontakty, fotografie a záznamy o inštalácii a školení. Po prvom online prihlásení môžete ukladať údaje aj bez internetu; čakajúce zmeny sa odošlú po obnovení pripojenia.",
+        deliveryPending: "Verzia pre Android sa pripravuje. Stiahnutie bude dostupné po dokončení overenia.",
+        deliveryNote: "Android 8.0 a novší. Prístup vyžaduje osobný API kľúč od správcu a oprávnenie pre misijnú sekciu. Pred odinštalovaním synchronizujte všetky čakajúce zmeny.",
         tagline: "Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.",
         eventsSub: "Akcie, zhromaždenia a kázne — vždy poruke",
         eventsDesc: "Informácie o najbližšej akcii a zhromaždeniach sú dostupné pre všetkých. Po prihlásení získate úplné informácie o akcii, MP3 nahrávky kázní a živé vysielania. K dispozícii v slovenčine, češtine a angličtine.",
@@ -231,6 +261,10 @@
         apkNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Pre iPhone stiahnite aplikáciu z App Store; verzia pre Google Play sa pripravuje.",
       },
       cs: {
+        deliverySub: "Evidence doručení vybavení sborům",
+        deliveryDesc: "Vybavení, kontakty, fotografie a záznamy o instalaci a školení. Po prvním online přihlášení můžete ukládat údaje i bez internetu; čekající změny se odešlou po obnovení připojení.",
+        deliveryPending: "Verze pro Android se připravuje. Stažení bude dostupné po dokončení ověření.",
+        deliveryNote: "Android 8.0 a novější. Přístup vyžaduje osobní API klíč od správce a oprávnění pro misijní sekci. Před odinstalováním synchronizujte všechny čekající změny.",
         tagline: "Mobilní aplikace Misie — ke stažení pro Android a iOS.",
         eventsSub: "Akce, shromáždění a kázání — vždy po ruce",
         eventsDesc: "Informace o nejbližší akci a shromážděních jsou dostupné všem. Po přihlášení získáte úplné informace o akci, MP3 nahrávky kázání a živá vysílání. K dispozici ve slovenštině, češtině a angličtině.",
@@ -249,6 +283,10 @@
         apkNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Pro iPhone stáhněte aplikaci z App Store; verze pro Google Play se připravuje.",
       },
       en: {
+        deliverySub: "Equipment delivery records for churches",
+        deliveryDesc: "Equipment, contacts, photos, and installation and training records. After your first online sign-in, save work without internet; queued changes upload when connectivity returns.",
+        deliveryPending: "The Android release is being prepared. Downloads will be available after verification is complete.",
+        deliveryNote: "Android 8.0 or later. Access requires an administrator-issued personal API key and mission-section permission. Sync all queued changes before uninstalling.",
         tagline: "Misia mobile apps — downloads for Android and iOS.",
         eventsSub: "Events, church services and sermons — always at hand",
         eventsDesc: "Upcoming event and church-service info is open to everyone. Sign in for complete event information, MP3 sermon recordings and live broadcasts. Available in Slovak, Czech and English.",
@@ -287,6 +325,22 @@
       try { lang = localStorage.getItem("lang"); } catch (_) {}
       setLang(lang || "sk");
     })();
+
+    // The publisher enables downloads only after verifying the signed APK and API.
+    fetch("deliverytracker/release.json", { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) throw new Error("Release status unavailable");
+        return response.json();
+      })
+      .then(release => {
+        if (release.available !== true || !release.version || !Number.isInteger(release.version_code)) return;
+        document.getElementById("deliverytracker-version").textContent = `${release.version} (${release.version_code})`;
+        document.getElementById("deliverytracker-version-date").textContent = release.released_at.slice(0, 10);
+        document.getElementById("deliverytracker-download").hidden = false;
+        document.getElementById("deliverytracker-release-info").hidden = false;
+        document.getElementById("deliverytracker-pending").hidden = true;
+      })
+      .catch(() => { /* Keep the preparation notice if release status cannot be read. */ });
   </script>
 </body>
 </html>

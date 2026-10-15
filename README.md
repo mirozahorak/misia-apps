@@ -53,6 +53,31 @@ serves the new build.
 
 ## Editing the website
 
+## DeliveryTracker
+
+DeliveryTracker's card and [support page](deliverytracker/support/) are published
+with downloads pending. `deliverytracker/release.json` controls availability;
+keep `available` false until the signed APK and production field login are verified.
+
+Its Kotlin/Gradle source is at
+`/Volumes/DEVEL/_ANDROID/DELIVERIES/DeliveryTracker`. After the owner deploys
+the Rails field API and completes acceptance, run from that source directory:
+
+```bash
+# DELIVERYTRACKER_API_TOKEN must be supplied privately through the environment.
+JAVA_HOME='/Applications/Android Studio.app/Contents/jbr/Contents/Home' \
+  python3 scripts/release_android.py --publish
+```
+
+The publisher checks the recorded signing certificate and production login,
+uploads immutable versioned and stable APK assets, downloads both to verify their
+checksums, then commits and pushes the availability manifest. The stable URL is
+`https://github.com/mirozahorak/misia-apps/releases/download/deliverytracker-latest/misia-deliverytracker.apk`.
+It uses the direct GitHub URL, so it needs no new Rails download-counter route.
+Existing Events and Songbook latest-release selection is retained.
+
+## Editing the website
+
 1. Edit `index.html` (styles are inline in `<head>`, translations in the
    `I18N` object at the bottom).
 2. Commit and push to `main`:
