@@ -53,8 +53,8 @@ serves the new build.
 
 ## DeliveryTracker
 
-DeliveryTracker's card and [support page](deliverytracker/support/) are published
-with downloads pending. `deliverytracker/release.json` controls availability;
+DeliveryTracker's card and [support page](deliverytracker/support/) are published.
+`deliverytracker/release.json` controls download availability;
 keep `available` false until the signed APK and production field login are verified.
 
 Its Kotlin/Gradle source is at
