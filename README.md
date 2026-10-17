@@ -105,6 +105,15 @@ Existing Events and Songbook latest-release selection is retained.
 
 ## Privacy & support pages
 
+Wordcast's privacy, support and terms pages are published at:
+
+- https://mirozahorak.github.io/misia-apps/wordcast/privacy/
+- https://mirozahorak.github.io/misia-apps/wordcast/support/
+- https://mirozahorak.github.io/misia-apps/wordcast/terms/
+
+Its iOS app links to these pages from Settings. There is no store download button
+until the Wordcast release is available.
+
 Each app has store-required pages served from this repo:
 
 ```
