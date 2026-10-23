@@ -190,6 +190,42 @@
       </p>
     </section>
 
+    <!-- ============ Misia Radio ============ -->
+    <section class="card" id="radio">
+      <div class="app-head">
+        <img src="assets/radio-icon.png" alt="Ikona Misia Rádio">
+        <div>
+          <h2 data-i18n="radioName">Misia Rádio</h2>
+          <div class="sub" data-i18n="radioSub">Kázne, piesne a audioknihy naživo — vo vašom jazyku</div>
+        </div>
+      </div>
+      <p class="desc" data-i18n="radioDesc">
+        Internetové rádio Misie jedným ťuknutím. Počas kázne sa miesta z Písma
+        zobrazujú práve vtedy, keď zaznejú; piesne majú text a audioknihy odkaz
+        na knihu. Program na týždeň aj to, čo už odznelo, pripomienky, uložené
+        miesta z Písma a kázne od začiatku. Bez prihlásenia a bez reklamy.
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="https://github.com/mirozahorak/misia-apps/releases/download/radio-latest/misia-radio.apk">
+          <svg viewBox="0 0 24 24"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.7-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67c-.19-.29-.55-.37-.84-.22-.3.16-.42.54-.26.85L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
+          <span data-i18n="btnAndroid">Stiahnuť pre Android (APK)</span>
+        </a>
+      </div>
+      <p class="note">
+        <span data-i18n="latestVersion">Aktuálna verzia</span>:
+        <strong id="radio-version">—</strong>
+        · <span id="radio-version-date">—</span>
+      </p>
+      <p class="note" data-i18n="radioNote">
+        Android 7.0 a novší. Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“.
+        Povolenie na upozornenia sa vyžiada, len ak si nastavíte pripomienku.
+      </p>
+      <p class="note">
+        <a href="radio/privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a> ·
+        <a href="radio/support/" data-i18n="linkSupport">Podpora</a>
+      </p>
+    </section>
+
     <!-- ============ Wordcast ============ -->
     <section class="card" id="wordcast">
       <div class="app-head">
@@ -257,6 +293,10 @@
   <script>
     const I18N = {
       sk: {
+        radioName: "Misia Rádio",
+        radioSub: "Kázne, piesne a audioknihy naživo — vo vašom jazyku",
+        radioDesc: "Internetové rádio Misie jedným ťuknutím. Počas kázne sa miesta z Písma zobrazujú práve vtedy, keď zaznejú; piesne majú text a audioknihy odkaz na knihu. Program na týždeň aj to, čo už odznelo, pripomienky, uložené miesta z Písma a kázne od začiatku. Bez prihlásenia a bez reklamy.",
+        radioNote: "Android 7.0 a novší. Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Povolenie na upozornenia sa vyžiada, len ak si nastavíte pripomienku.",
         wordcastSub: "Kázne vo vašom jazyku, aj bez internetu",
         wordcastDesc: "Počúvajte kázne, sledujte vybrané jazyky, sťahujte nahrávky a čítajte dostupné prepisy. Obľúbené položky, zbierky a priebeh počúvania zostávajú vo vašom zariadení. Bez účtu a bez reklamy.",
         wordcastNote: "Verzia pre iPhone a iPad sa pripravuje. Informácie o podpore a ochrane súkromia sú dostupné nižšie.",
@@ -283,6 +323,10 @@
         apkNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Pre iPhone stiahnite aplikáciu z App Store; verzia pre Google Play sa pripravuje.",
       },
       cs: {
+        radioName: "Misia Rádio",
+        radioSub: "Kázání, písně a audioknihy živě — ve vašem jazyce",
+        radioDesc: "Internetové rádio Misie jedním klepnutím. Během kázání se místa z Písma zobrazují právě ve chvíli, kdy zazní; písně mají text a audioknihy odkaz na knihu. Program na týden i to, co už zaznělo, připomínky, uložená místa z Písma a kázání od začátku. Bez přihlášení a bez reklamy.",
+        radioNote: "Android 7.0 a novější. Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Oprávnění k oznámením se vyžádá, jen pokud si nastavíte připomínku.",
         wordcastSub: "Kázání ve vašem jazyce, i bez internetu",
         wordcastDesc: "Poslouchejte kázání, sledujte vybrané jazyky, stahujte nahrávky a čtěte dostupné přepisy. Oblíbené položky, sbírky a průběh poslechu zůstávají ve vašem zařízení. Bez účtu a bez reklamy.",
         wordcastNote: "Verze pro iPhone a iPad se připravuje. Informace o podpoře a ochraně soukromí jsou dostupné níže.",
@@ -309,6 +353,10 @@
         apkNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Pro iPhone stáhněte aplikaci z App Store; verze pro Google Play se připravuje.",
       },
       en: {
+        radioName: "Misia Radio",
+        radioSub: "Sermons, songs and audiobooks live — in your language",
+        radioDesc: "Misia's internet radio in one tap. During a sermon, scripture appears as it is read; songs show their lyrics and audiobooks link to the book. The week's programme and what has already played, reminders, saved passages, and sermons from the beginning. No sign-in and no ads.",
+        radioNote: "Android 7.0 or newer. When installing the APK, allow “Install from unknown sources”. Notification permission is requested only if you set a reminder.",
         wordcastSub: "Sermons in your language, including offline",
         wordcastDesc: "Listen to sermons, follow languages, download recordings and read available transcripts. Favourites, collections and listening progress stay on your device. No account and no advertising.",
         wordcastNote: "The iPhone and iPad release is being prepared. Support and privacy information is available below.",

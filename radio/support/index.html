@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Misia Radio</title>
+<link rel="stylesheet" href="../../assets/legal.css">
+<link rel="icon" href="../../assets/radio-icon.png">
+<script src="contact.js" defer></script>
+<style>
+  #contact-form { display: grid; gap: 6px; max-width: 520px; margin: 12px 0 20px; }
+  #contact-form input, #contact-form textarea { font: inherit; padding: 10px 12px; border: 1px solid #c9c6bc; border-radius: 10px; }
+  #contact-form label { font-weight: 600; margin-top: 6px; }
+  #contact-form button { justify-self: start; margin-top: 10px; font: inherit; font-weight: 600; padding: 10px 18px; border: 0; border-radius: 999px; background: #0d5f4e; color: #fff; cursor: pointer; }
+  #contact-form button:disabled { opacity: .6; cursor: default; }
+  .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+</style>
+</head>
+<body>
+<a class="back" href="../../">← MISIA.SK APPS</a>
+<h1>Support</h1>
+<p class="updated">Misia Radio — last updated 23 October 2026</p>
+
+<p><strong>Misia Radio</strong> plays Misia's internet radio — sermons, songs and audiobooks, live and
+in your language — with the scripture, lyrics and books that go with them.</p>
+
+<h2>Frequently asked questions</h2>
+<ul>
+  <li><strong>How do I change the station?</strong> Tap the station name at the top of the Listen screen,
+      or open More › Station.</li>
+  <li><strong>The sound stopped.</strong> The app reconnects by itself when the connection drops and always
+      returns to the live broadcast. If a station is not broadcasting, the Listen screen says so.</li>
+  <li><strong>Can I hear a sermon from the beginning?</strong> Yes. Choose “Listen from the beginning”, or open
+      the sermon and tap any scripture passage to hear that part.</li>
+  <li><strong>Where does the scripture come from?</strong> Passages are marked in each sermon and shown as they are
+      read. Open a sermon to choose another Bible translation.</li>
+  <li><strong>How do reminders work?</strong> Tap the bell next to a sermon or chapter in the programme. You will be
+      notified a few minutes before it starts.</li>
+  <li><strong>Can the radio stop by itself?</strong> Yes — use the sleep timer (the moon icon), including
+      “at the end of this sermon”.</li>
+</ul>
+
+<h2>Installing the Android app</h2>
+<p>Download the APK from <a href="../../">MISIA.SK APPS</a>. Android will ask you to allow installing apps
+from your browser — this is normal for apps distributed outside Google Play.</p>
+
+<h2>Contact us</h2>
+<p>Report a problem or ask a question. Your name, email and message are sent over HTTPS to nasa.misia.sk and
+forwarded to Misia's support mailbox, and are used only to answer you. You can ask for them to be deleted at
+<a href="mailto:info@misia.sk">info@misia.sk</a>.</p>
+<form id="contact-form" action="https://nasa.misia.sk/api/v1/contact_enquiries" method="post">
+  <label for="contact-name">Name</label>
+  <input id="contact-name" name="name" autocomplete="name" maxlength="150" required>
+  <label for="contact-email">Email</label>
+  <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+  <label for="contact-message">Message</label>
+  <textarea id="contact-message" name="message" rows="7" maxlength="10000" required></textarea>
+  <div class="honeypot" aria-hidden="true">
+    <label for="contact-website">Leave this field empty</label>
+    <input id="contact-website" name="website" tabindex="-1" autocomplete="off">
+  </div>
+  <button type="submit" id="contact-submit" disabled>Send message</button>
+  <p id="contact-status" role="status" aria-live="polite"></p>
+</form>
+<noscript><p>The form needs JavaScript. You can email us instead.</p></noscript>
+<p>E-mail: <a href="mailto:info@misia.sk">info@misia.sk</a><br>
+Web: <a href="https://www.misia.sk">www.misia.sk</a></p>
+
+<h2>Privacy</h2>
+<p>See the <a href="../privacy/">Privacy Policy</a>.</p>
+
+<footer>
+  Misia — <a href="https://www.misia.sk">www.misia.sk</a> — <a href="mailto:info@misia.sk">info@misia.sk</a>
+</footer>
+</body>
+</html>
