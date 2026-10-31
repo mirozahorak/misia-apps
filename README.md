@@ -6,7 +6,7 @@ Mobile apps of Misia (Slobodná ľudová misia), available for download at
 | App | What it is | Platforms |
 | --- | --- | --- |
 | **Misia Akcie/Events** | Events, meetings and sermons — the next event for everyone; full event details, sermon recordings and live broadcasts after sign-in | Android, iPhone |
-| **Misia Spevník/Songbook** | A Christian songbook in six languages that works offline | Android |
+| **Misia Spevník/Songbook** | A Christian songbook in six languages that works offline | Android, iPhone, iPad |
 | **Misia Rádio** | Misia's internet radio: sermons, songs and audiobooks live, with scripture, lyrics and the week's programme | Android |
 | **Wordcast** | Sermons in your language, also offline | iPhone (in preparation) |
 | **DeliveryTracker** | Equipment delivery records for churches (for authorised mission staff) | Android |
