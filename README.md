@@ -38,3 +38,7 @@ Reader, Songbook and Events are publicly available on the Apple App Store. Their
 Radio and Reader have Google Play closed tests, not public production releases. New volunteers first join [Misia App Testers](https://groups.google.com/g/misia-app-testers) using their Play account, then opt in separately for each app. Radio group access is available; Reader group access is still awaiting approval. Existing invited Alpha testers can access both. These states come from the release tracker's 4 November Console evidence; recheck before changing availability labels.
 
 This catalogue is for Misia apps; Builder for BuildTrack has a separate business audience.
+
+## Language-specific links
+
+Share `?lang=sk`, `?lang=cs` or `?lang=en` to open the catalogue in Slovak, Czech or English. A valid URL language overrides the visitor's saved preference. Language buttons update the current URL, preserving other query parameters and app anchors (for example `?lang=en#reader`). Unsupported values fall back to the saved preference, then Slovak.
