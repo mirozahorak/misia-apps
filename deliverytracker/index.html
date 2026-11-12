@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DeliveryTracker</title>
+  <link rel="icon" href="../assets/deliverytracker-icon.png">
+  <link rel="stylesheet" href="../assets/catalogue.css">
+  <script src="../assets/catalogue.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <a href="../#deliverytracker" data-keep-language data-i18n="allApps">Všetky aplikácie</a>
+    <nav class="lang" aria-label="Language">
+      <button type="button" data-lang="sk" lang="sk" aria-label="Slovenčina" aria-pressed="true">SK</button>
+      <button type="button" data-lang="cs" lang="cs" aria-label="Čeština" aria-pressed="false">CS</button>
+      <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+    </nav>
+  </header>
+  <main>
+    <div class="app-head">
+      <img src="../assets/deliverytracker-icon.png" width="82" height="82" alt="">
+      <div><h1>DeliveryTracker</h1><div class="sub" data-i18n="deliverySub">Evidencia doručenia vybavenia zborom</div></div>
+    </div>
+    <p class="desc" data-i18n="deliveryDesc">Vybavenie, kontakty, fotografie a záznamy o inštalácii a školení. Po prvom online prihlásení môžete ukladať údaje aj bez internetu; čakajúce zmeny sa odošlú po obnovení pripojenia.</p>
+    <div class="actions">
+        <section class="action">
+          <h2 data-i18n="apkHeading">Android APK</h2>
+          <div class="buttons">
+            <a class="btn" id="deliverytracker-download" href="https://github.com/mirozahorak/misia-apps/releases/download/deliverytracker-latest/misia-deliverytracker.apk" hidden><span data-i18n="btnAndroid">Stiahnuť pre Android (APK)</span></a>
+          </div>
+          <p class="note" id="deliverytracker-pending" data-i18n="deliveryPending">Verzia pre Android sa pripravuje. Stiahnutie bude dostupné po dokončení overenia.</p>
+          <p class="note" id="deliverytracker-release-info" hidden>
+        <span data-i18n="latestVersion">Aktuálna verzia</span>:
+        <strong id="deliverytracker-version"></strong>
+        · <span id="deliverytracker-version-date"></span>
+      </p>
+          <p class="note" data-i18n="deliveryNote">Android 8.0 a novší. Prístup vyžaduje osobný API kľúč od správcu a oprávnenie pre misijnú sekciu. Pred odinštalovaním synchronizujte všetky čakajúce zmeny.</p>
+        </section>
+        <section class="action action-secondary">
+          <h2 data-i18n="resources">Web a podpora</h2>
+          <div class="buttons">
+            <a class="btn" href="support/" data-i18n="linkSupport">Podpora</a>
+          </div>
+        </section>
+    </div>
+    <section class="screens">
+      <h2 data-i18n="screenshots">Snímky obrazovky</h2>
+      <div class="gallery">
+        <figure>
+          <a href="screenshots/overview.webp" aria-labelledby="caption-0"><img src="screenshots/overview.webp" width="931" height="1800" alt="" loading="lazy"></a>
+          <figcaption id="caption-0" data-i18n="deliverytrackerShot0">Správy o dodávkach uložené v zariadení.</figcaption>
+        </figure>
+        <figure>
+          <a href="screenshots/report.webp" aria-labelledby="caption-1"><img src="screenshots/report.webp" width="931" height="1800" alt="" loading="lazy"></a>
+          <figcaption id="caption-1" data-i18n="deliverytrackerShot1">Zbor a správa o dodávke.</figcaption>
+        </figure>
+        <figure>
+          <a href="screenshots/new-delivery.webp" aria-labelledby="caption-2"><img src="screenshots/new-delivery.webp" width="931" height="1800" alt="" loading="lazy"></a>
+          <figcaption id="caption-2" data-i18n="deliverytrackerShot2">Pridávanie dodávky krok za krokom.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+  <footer><a href="https://nasa.misia.sk">nasa.misia.sk</a></footer>
+</div>
+</body>
+</html>

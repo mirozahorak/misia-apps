@@ -4,596 +4,82 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MISIA.SK APPS</title>
-  <meta name="description" content="Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.">
   <link rel="icon" href="assets/events-icon.png">
-  <style>
-    :root {
-      --bg: #f5f4ef;
-      --surface: #ffffff;
-      --ink: #1c2321;
-      --muted: #5c6662;
-      --primary: #0d5f4e;
-      --primary-ink: #ffffff;
-      --outline: #dcdad2;
-      --radius: 18px;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #141917;
-        --surface: #1d2422;
-        --ink: #e8ece9;
-        --muted: #9aa5a0;
-        --primary: #7fd6bd;
-        --primary-ink: #10201b;
-        --outline: #2c3531;
-      }
-    }
-    * { box-sizing: border-box; margin: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-    }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 40px 20px 64px; }
-    header { margin-bottom: 36px; }
-    header h1 { font-size: 2rem; letter-spacing: -0.02em; }
-    header p { color: var(--muted); margin-top: 6px; }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--outline);
-      border-radius: var(--radius);
-      padding: 24px;
-      margin-bottom: 20px;
-    }
-    .app-head { display: flex; gap: 16px; align-items: center; }
-    .app-head img {
-      width: 72px; height: 72px; border-radius: 18px; flex: none;
-      box-shadow: 0 4px 14px rgba(0,0,0,.12);
-    }
-    .app-head h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
-    .app-head .sub { color: var(--muted); font-size: .95rem; }
-    .desc { margin-top: 14px; color: var(--muted); }
-    .buttons { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 11px 18px; border-radius: 999px;
-      text-decoration: none; font-weight: 600; font-size: .95rem;
-      border: 1.5px solid var(--primary); color: var(--primary);
-      transition: transform .12s ease;
-    }
-    .btn:hover { transform: translateY(-1px); }
-    .btn.primary { background: var(--primary); color: var(--primary-ink); }
-    .buttons [hidden] { display: none; }
-    .btn svg { width: 18px; height: 18px; fill: currentColor; }
-    .note { font-size: .85rem; color: var(--muted); margin-top: 12px; }
-    .soon { opacity: .75; }
-    .badge {
-      display: inline-block; font-size: .75rem; font-weight: 700;
-      letter-spacing: .04em; text-transform: uppercase;
-      color: var(--muted); border: 1px solid var(--outline);
-      border-radius: 999px; padding: 2px 10px; margin-left: 8px;
-      vertical-align: middle;
-    }
-    footer { margin-top: 40px; color: var(--muted); font-size: .85rem; }
-    footer a { color: var(--primary); }
-    .note a { color: var(--primary); font-weight: 600; }
-    .topbar { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
-    .lang { display: flex; gap: 6px; }
-    .lang button {
-      font: inherit; font-size: .8rem; font-weight: 700;
-      padding: 5px 12px; border-radius: 999px; cursor: pointer;
-      border: 1px solid var(--outline); background: transparent; color: var(--muted);
-    }
-    .lang button.active {
-      background: var(--primary); color: var(--primary-ink); border-color: var(--primary);
-    }
-    .wordcast-preview { margin-top: 18px; border-top: 1px solid var(--outline); padding-top: 14px; }
-    .wordcast-preview summary { cursor: pointer; color: var(--primary); font-weight: 600; }
-    .wordcast-features { margin: 12px 0; padding-inline-start: 20px; color: var(--muted); }
-    .wordcast-features li + li { margin-top: 6px; }
-    .wordcast-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-    .wordcast-gallery img { display: block; width: 100%; height: auto; border: 1px solid var(--outline); border-radius: 10px; }
-    .wordcast-gallery figcaption { margin-top: 5px; color: var(--muted); font-size: .85rem; }
-    @media (max-width: 520px) {
-      .wordcast-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
-      .wordcast-gallery figure { flex: 0 0 58%; scroll-snap-align: start; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/catalogue.css">
+  <script src="assets/catalogue.js" defer></script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="topbar">
-        <h1>MISIA.SK APPS</h1>
-        <nav class="lang" aria-label="Language">
-          <button data-lang="sk" onclick="setLang('sk')">SK</button>
-          <button data-lang="cs" onclick="setLang('cs')">CS</button>
-          <button data-lang="en" onclick="setLang('en')">EN</button>
-        </nav>
-      </div>
-      <p data-i18n="tagline">Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.</p>
-    </header>
-
-    <!-- ============ Misia.sk Reader ============ -->
-    <section class="card" id="reader">
-      <div class="app-head">
-        <img src="assets/reader-icon.jpg" alt="Misia.sk Reader" width="72" height="72" loading="lazy">
-        <div>
-          <h2>Misia.sk Reader</h2>
-          <div class="sub" data-i18n="readerSub">Knihy, obežníky a prepisy kázní vo vašom vrecku</div>
-        </div>
-      </div>
-      <p class="desc" data-i18n="readerDesc">Čítajte kresťanské publikácie z Misia.sk aj bez internetu. Vyhľadávajte v texte, ukladajte záložky a poznámky a pokračujte od poslednej kapitoly. Nastavte si jazyky, veľkosť písma a vzhľad stránky. Bez účtu a bez reklamy.</p>
-      <p class="note" data-i18n="readerStatus">iPhone a iPad: dostupné v App Store. Android: uzavreté testovanie v Google Play; verejné vydanie sa pripravuje.</p>
-      <div class="buttons">
-        <a class="btn primary" href="https://apps.apple.com/app/id6745415860" data-i18n="btnSongbookAppStore">Stiahnuť pre iPhone a iPad (App Store)</a>
-        <a class="btn" href="https://groups.google.com/g/misia-app-testers" data-i18n="btnTesterGroup">Pridať sa do skupiny testerov</a>
-        <a class="btn" href="https://play.google.com/apps/testing/sk.misia.reader" data-i18n="btnPlayTest">Testovať cez Google Play</a>
-      </div>
-      <p class="note" data-i18n="readerJoinNote">Pre Android sa najprv pridajte do skupiny testerov s účtom, ktorý používate v Google Play. Po schválení prístupu otvorte odkaz na testovanie a prihláste sa do testu.</p>
-      <p class="note" data-i18n="readerTestNote">Prístup pre nových členov skupiny testerov ešte čaká na schválenie Googlom (stav k 4. 11. 2026). Existujúci pozvaní testeri môžu použiť odkaz na testovanie.</p>
-      <p class="note">
-        <a href="reader/privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a> ·
-        <a href="reader/support/" data-i18n="linkSupport">Podpora</a>
-      </p>
-    </section>
-
-    <!-- ============ Misia Akcie/Events ============ -->
-    <section class="card">
-      <div class="app-head">
-        <img src="assets/events-icon.png" alt="Ikona Misia Akcie/Events">
-        <div>
-          <h2>Misia Akcie/Events</h2>
-          <div class="sub" data-i18n="eventsSub">Akcie, zhromaždenia a kázne — vždy poruke</div>
-        </div>
-      </div>
-      <p class="desc" data-i18n="eventsDesc">
-        Informácie o najbližšej akcii a zhromaždeniach sú dostupné pre všetkých.
-        Po prihlásení získate úplné informácie o akcii, MP3 nahrávky kázní
-        a živé vysielania. K dispozícii v slovenčine, češtine a angličtine.
-      </p>
-      <div class="buttons">
-        <a class="btn primary" href="https://nasa.misia.sk/app/events/android?v=1.3.0%2B7">
-          <svg viewBox="0 0 24 24"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.7-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67c-.19-.29-.55-.37-.84-.22-.3.16-.42.54-.26.85L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
-          <span data-i18n="btnAndroid">Stiahnuť pre Android (APK)</span>
-        </a>
-        <a class="btn primary" href="https://apps.apple.com/app/id6793294840">
-          <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <span data-i18n="btnAppStore">Stiahnuť pre iPhone (App Store)</span>
-        </a>
-        <a class="btn" href="https://nasa.misia.sk/events">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.93 9h-3.02a15.7 15.7 0 0 0-1.18-5.24A8.03 8.03 0 0 1 19.93 11zM12 4.04c.86 1.16 1.61 3.06 1.9 5.96h-3.8c.29-2.9 1.04-4.8 1.9-5.96zM4.07 13h3.02c.14 1.9.55 3.71 1.18 5.24A8.03 8.03 0 0 1 4.07 13zm3.02-2H4.07a8.03 8.03 0 0 1 4.2-5.24A15.7 15.7 0 0 0 7.09 11zM12 19.96c-.86-1.16-1.61-3.06-1.9-5.96h3.8c-.29 2.9-1.04 4.8-1.9 5.96zm2.73-.72c.63-1.53 1.04-3.34 1.18-5.24h3.02a8.03 8.03 0 0 1-4.2 5.24z"/></svg>
-          <span data-i18n="btnWeb">Webová verzia</span>
-          <span style="font-weight:400;" data-i18n="btnWebNote">&nbsp;(vyžaduje prihlásenie)</span>
-        </a>
-      </div>
-      <p class="note">
-        <span data-i18n="latestVersion">Aktuálna verzia</span>:
-        <strong id="events-version">1.3.0 (7)</strong>
-        · <span id="events-version-date">2. 8. 2026, 22:21</span>
-      </p>
-      <p class="note" data-i18n="apkNote">
-        Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“.
-        Pre iPhone stiahnite aplikáciu z App Store; verzia pre
-        Google Play sa pripravuje.
-      </p>
-      <p class="note">
-        <a href="events/privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a> ·
-        <a href="events/support/" data-i18n="linkSupport">Podpora</a>
-      </p>
-    </section>
-
-    <!-- ============ Misia Songbook ============ -->
-    <section class="card">
-      <div class="app-head">
-        <img src="assets/songbook-icon.png" alt="Ikona Misia Songbook">
-        <div>
-          <h2 data-i18n="songbookName">Misia Spevník/Songbook</h2>
-          <div class="sub" data-i18n="songbookSub">Spevník — 2 633 piesní v šiestich jazykoch</div>
-        </div>
-      </div>
-      <p class="desc" data-i18n="songbookDesc">
-        Kresťanský spevník s piesňami v slovenčine, angličtine, francúzštine,
-        svahilčine, lugande a kinyarwande. Celá zbierka je uložená v telefóne —
-        funguje offline, bez internetu. Vyhľadávanie, obľúbené piesne,
-        nastaviteľná veľkosť písma a tmavý režim.
-      </p>
-      <div class="buttons">
-        <a class="btn primary" href="https://nasa.misia.sk/app/songbook/android?v=1.0.3%2B4">
-          <svg viewBox="0 0 24 24"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.7-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67c-.19-.29-.55-.37-.84-.22-.3.16-.42.54-.26.85L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
-          <span data-i18n="btnAndroid">Stiahnuť pre Android (APK)</span>
-        </a>
-        <a class="btn primary" href="https://apps.apple.com/app/id6823311593">
-          <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <span data-i18n="btnSongbookAppStore">Stiahnuť pre iPhone a iPad (App Store)</span>
-        </a>
-        <a class="btn" href="https://nasa.misia.sk/songs">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.93 9h-3.02a15.7 15.7 0 0 0-1.18-5.24A8.03 8.03 0 0 1 19.93 11zM12 4.04c.86 1.16 1.61 3.06 1.9 5.96h-3.8c.29-2.9 1.04-4.8 1.9-5.96zM4.07 13h3.02c.14 1.9.55 3.71 1.18 5.24A8.03 8.03 0 0 1 4.07 13zm3.02-2H4.07a8.03 8.03 0 0 1 4.2-5.24A15.7 15.7 0 0 0 7.09 11zM12 19.96c-.86-1.16-1.61-3.06-1.9-5.96h3.8c-.29 2.9-1.04 4.8-1.9 5.96zm2.73-.72c.63-1.53 1.04-3.34 1.18-5.24h3.02a8.03 8.03 0 0 1-4.2 5.24z"/></svg>
-          <span data-i18n="btnWebSongs">Webová verzia</span>
-        </a>
-      </div>
-      <p class="note">
-        <span data-i18n="latestVersion">Aktuálna verzia</span>:
-        <strong id="songbook-version">1.0.3 (4)</strong>
-        · <span id="songbook-version-date">1. 8. 2026, 23:13</span>
-      </p>
-      <p class="note" data-i18n="songbookNote">
-        Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“.
-        Pre iPhone a iPad je aplikácia dostupná v App Store. Prihlásenie nie je potrebné.
-      </p>
-      <p class="note">
-        <a href="songbook/privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a> ·
-        <a href="songbook/support/" data-i18n="linkSupport">Podpora</a>
-      </p>
-    </section>
-
-    <!-- ============ Misia Bible Timeline ============ -->
-    <section class="card" id="bible-timeline">
-      <div class="app-head">
-        <img src="assets/bible-timeline-icon.png" alt="Ikona Misia Biblická časová os">
-        <div>
-          <h2 data-i18n="timelineName">Misia Biblická časová os</h2>
-          <div class="sub" data-i18n="timelineSub">18 období, 69 osôb a 235 udalostí</div>
-        </div>
-      </div>
-      <p class="desc" data-i18n="timelineDesc">
-        Biblické a kresťanské dejiny v jednej časovej osi, od stvorenia po dnešok,
-        s miestami Písma, podrobnými textami a obrázkami. Všetko je uložené v telefóne
-        a funguje offline, bez internetu.
-      </p>
-      <div class="buttons">
-        <a class="btn primary" href="https://github.com/mirozahorak/misia-apps/releases/download/bible-timeline-latest/misia-bible-timeline.apk">
-          <svg viewBox="0 0 24 24"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.7-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67c-.19-.29-.55-.37-.84-.22-.3.16-.42.54-.26.85L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
-          <span data-i18n="btnAndroid">Stiahnuť pre Android (APK)</span>
-        </a>
-        <a class="btn" href="https://nasa.misia.sk/timeline">
-          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm7.93 9h-3.02a15.7 15.7 0 0 0-1.18-5.24A8.03 8.03 0 0 1 19.93 11zM12 4.04c.86 1.16 1.61 3.06 1.9 5.96h-3.8c.29-2.9 1.04-4.8 1.9-5.96zM4.07 13h3.02c.14 1.9.55 3.71 1.18 5.24A8.03 8.03 0 0 1 4.07 13zm3.02-2H4.07a8.03 8.03 0 0 1 4.2-5.24A15.7 15.7 0 0 0 7.09 11zM12 19.96c-.86-1.16-1.61-3.06-1.9-5.96h3.8c-.29 2.9-1.04 4.8-1.9 5.96zm2.73-.72c.63-1.53 1.04-3.34 1.18-5.24h3.02a8.03 8.03 0 0 1-4.2 5.24z"/></svg>
-          <span data-i18n="btnWebSongs">Webová verzia</span>
-        </a>
-      </div>
-      <p class="note">
-        <span data-i18n="latestVersion">Aktuálna verzia</span>:
-        <strong>1.0.0 (1)</strong>
-      </p>
-      <p class="note" data-i18n="timelineNote">
-        Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Prihlásenie nie je potrebné.
-      </p>
-      <p class="note">
-        <a href="bible-timeline/privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a> ·
-        <a href="bible-timeline/support/" data-i18n="linkSupport">Podpora</a>
-      </p>
-    </section>
-
-    <!-- ============ Misia Radio ============ -->
-    <section class="card" id="radio">
-      <div class="app-head">
-        <img src="assets/radio-icon.png" alt="Ikona Misia Rádio">
-        <div>
-          <h2 data-i18n="radioName">Misia Rádio</h2>
-          <div class="sub" data-i18n="radioSub">Kázne, piesne a audioknihy naživo — vo vašom jazyku</div>
-        </div>
-      </div>
-      <p class="desc" data-i18n="radioDesc">
-        Internetové rádio Misie jedným ťuknutím. Počas kázne sa miesta z Písma
-        zobrazujú práve vtedy, keď zaznejú; piesne majú text a audioknihy odkaz
-        na knihu. Program na týždeň aj to, čo už odznelo, pripomienky, uložené
-        miesta z Písma a kázne od začiatku. Bez prihlásenia a bez reklamy.
-      </p>
-      <div class="buttons">
-        <a class="btn primary" href="https://nasa.misia.sk/app/radio/android?v=1.0.0%2B4">
-          <svg viewBox="0 0 24 24"><path d="M17.6 9.48l1.84-3.18c.16-.31.04-.7-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.65 5.67c-.19-.29-.55-.37-.84-.22-.3.16-.42.54-.26.85L6.4 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52zM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5z"/></svg>
-          <span data-i18n="btnAndroid">Stiahnuť pre Android (APK)</span>
-        </a>
-        <a class="btn" href="https://groups.google.com/g/misia-app-testers" data-i18n="btnTesterGroup">Pridať sa do skupiny testerov</a>
-        <a class="btn" href="https://play.google.com/apps/testing/sk.misia.radio" data-i18n="btnPlayTest">Testovať cez Google Play</a>
-      </div>
-      <p class="note" data-i18n="radioTestNote">Google Play: uzavreté testovanie. Najprv sa pridajte do skupiny testerov s rovnakým účtom Google, aký používate v Google Play. Potom otvorte odkaz na testovanie a prihláste sa do testu. Verejné vydanie sa pripravuje.</p>
-      <p class="note">
-        <span data-i18n="latestVersion">Aktuálna verzia</span>:
-        <strong id="radio-version">1.0.0 (4)</strong>
-        · <span id="radio-version-date">26. 10. 2026, 18:45</span>
-      </p>
-      <p class="note" data-i18n="radioNote">
-        Android 7.0 a novší. Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“.
-        Povolenie na upozornenia sa vyžiada, len ak si nastavíte pripomienku.
-      </p>
-      <p class="note">
-        <a href="radio/privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a> ·
-        <a href="radio/support/" data-i18n="linkSupport">Podpora</a>
-      </p>
-    </section>
-
-    <!-- ============ Misia Wordcast ============ -->
-    <section class="card" id="wordcast">
-      <div class="app-head">
-        <img src="assets/wordcast-icon.png" alt="Misia Wordcast" width="72" height="72" loading="lazy">
-        <div>
-          <h2>Misia Wordcast</h2>
-          <div class="sub" data-i18n="wordcastSub">Kázne vo vašom jazyku, aj bez internetu</div>
-        </div>
-      </div>
-      <p class="desc" data-i18n="wordcastSummary">Počúvajte kázne Misie vo vybraných jazykoch. Stiahnite si nahrávky na počúvanie bez internetu a vyberte si štandardný alebo jednoduchý režim.</p>
-      <div class="buttons">
-        <a class="btn primary" href="https://github.com/mirozahorak/misia-apps/releases/download/wordcast-v1.0.1-1/misia-wordcast.apk" data-i18n="wordcastDownload">Stiahnuť APK pre Android</a>
-        <a class="btn" href="https://apps.apple.com/app/id6824054088" data-i18n="btnSongbookAppStore">Stiahnuť pre iPhone a iPad (App Store)</a>
-      </div>
-      <p class="note"><strong data-i18n="wordcastStatus">Verejné testovanie · 1.0.1 (1) · Android 8.0 alebo novší</strong></p>
-      <p class="note" data-i18n="wordcastHelp">Otvorte stiahnutý súbor APK. Ak vás Android vyzve, povoľte inštaláciu z prehliadača.</p>
-      <details class="wordcast-preview" open>
-        <summary data-i18n="wordcastDetails">Funkcie a snímky obrazovky</summary>
-        <ul class="wordcast-features">
-          <li data-i18n="wordcastFeature1">Vyhľadávajte v knižnici kázní, filtrujte podľa jazyka a dátumu a prezerajte si kalendár vysielania.</li>
-          <li data-i18n="wordcastFeature2">Počúvajte na pozadí, pokračujte tam, kde ste prestali, upravte rýchlosť prehrávania alebo nastavte časovač vypnutia.</li>
-          <li data-i18n="wordcastFeature3">Sťahujte nahrávky, ukladajte si obľúbené kázne a usporiadajte ich do zbierok. Čítajte dostupné prepisy.</li>
-          <li data-i18n="wordcastFeature4">V jednoduchom režime nájdete väčšie tlačidlá prehrávača a kázne zoradené podľa dátumu.</li>
-        </ul>
-        <div class="wordcast-gallery">
-          <figure>
-            <a href="wordcast/screenshots/android-home.webp" aria-labelledby="wordcast-shot-1">
-              <img src="wordcast/screenshots/android-home.webp" alt="" width="900" height="1800" loading="lazy">
-            </a>
-            <figcaption id="wordcast-shot-1" data-i18n="wordcastShot1">Domovská obrazovka v štandardnom režime</figcaption>
-          </figure>
-          <figure>
-            <a href="wordcast/screenshots/android-sermons.webp" aria-labelledby="wordcast-shot-2">
-              <img src="wordcast/screenshots/android-sermons.webp" alt="" width="900" height="1800" loading="lazy">
-            </a>
-            <figcaption id="wordcast-shot-2" data-i18n="wordcastShot2">Knižnica kázní a vyhľadávanie</figcaption>
-          </figure>
-          <figure>
-            <a href="wordcast/screenshots/android-simple-player.webp" aria-labelledby="wordcast-shot-3">
-              <img src="wordcast/screenshots/android-simple-player.webp" alt="" width="900" height="1800" loading="lazy">
-            </a>
-            <figcaption id="wordcast-shot-3" data-i18n="wordcastShot3">Veľké tlačidlá prehrávača v jednoduchom režime</figcaption>
-          </figure>
-        </div>
-      </details>
-      <p class="note">
-        <a href="wordcast/privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a> ·
-        <a href="wordcast/support/" data-i18n="linkSupport">Podpora</a> ·
-        <a href="wordcast/terms/" data-i18n="linkTerms">Podmienky používania</a>
-      </p>
-    </section>
-
-    <!-- ============ DeliveryTracker ============ -->
-    <section class="card" id="deliverytracker">
-      <div class="app-head">
-        <img src="assets/deliverytracker-icon.png" alt="DeliveryTracker" width="72" height="72" loading="lazy">
-        <div>
-          <h2>DeliveryTracker</h2>
-          <div class="sub" data-i18n="deliverySub">Evidencia doručenia vybavenia zborom</div>
-        </div>
-      </div>
-      <p class="desc" data-i18n="deliveryDesc">Vybavenie, kontakty, fotografie a záznamy o inštalácii a školení. Po prvom online prihlásení môžete ukladať údaje aj bez internetu; čakajúce zmeny sa odošlú po obnovení pripojenia.</p>
-      <p class="note" id="deliverytracker-pending" data-i18n="deliveryPending">Verzia pre Android sa pripravuje. Stiahnutie bude dostupné po dokončení overenia.</p>
-      <div class="buttons">
-        <a class="btn primary" id="deliverytracker-download" href="https://github.com/mirozahorak/misia-apps/releases/download/deliverytracker-latest/misia-deliverytracker.apk" hidden>
-          <span data-i18n="btnAndroid">Stiahnuť pre Android (APK)</span>
-        </a>
-        <a class="btn" href="deliverytracker/support/" data-i18n="linkSupport">Podpora</a>
-      </div>
-      <p class="note" id="deliverytracker-release-info" hidden>
-        <span data-i18n="latestVersion">Aktuálna verzia</span>:
-        <strong id="deliverytracker-version"></strong>
-        · <span id="deliverytracker-version-date"></span>
-      </p>
-      <p class="note" data-i18n="deliveryNote">Android 8.0 a novší. Prístup vyžaduje osobný API kľúč od správcu a oprávnenie pre misijnú sekciu. Pred odinštalovaním synchronizujte všetky čakajúce zmeny.</p>
-    </section>
-
-
-    <footer>
-      <p><a href="https://nasa.misia.sk">nasa.misia.sk</a></p>
-    </footer>
-  </div>
-
-  <script>
-    const I18N = {
-      sk: {
-        readerSub: "Knihy, obežníky a prepisy kázní vo vašom vrecku",
-        readerDesc: "Čítajte kresťanské publikácie z Misia.sk aj bez internetu. Vyhľadávajte v texte, ukladajte záložky a poznámky a pokračujte od poslednej kapitoly. Nastavte si jazyky, veľkosť písma a vzhľad stránky. Bez účtu a bez reklamy.",
-        readerStatus: "iPhone a iPad: dostupné v App Store. Android: uzavreté testovanie v Google Play; verejné vydanie sa pripravuje.",
-        readerTestNote: "Prístup pre nových členov skupiny testerov ešte čaká na schválenie Googlom (stav k 4. 11. 2026). Existujúci pozvaní testeri môžu použiť odkaz na testovanie.",
-        btnPlayTest: "Testovať cez Google Play",
-        btnTesterGroup: "Pridať sa do skupiny testerov",
-        radioTestNote: "Google Play: uzavreté testovanie. Najprv sa pridajte do skupiny testerov s rovnakým účtom Google, aký používate v Google Play. Potom otvorte odkaz na testovanie a prihláste sa do testu. Verejné vydanie sa pripravuje.",
-        readerJoinNote: "Pre Android sa najprv pridajte do skupiny testerov s účtom, ktorý používate v Google Play. Po schválení prístupu otvorte odkaz na testovanie a prihláste sa do testu.",
-
-        radioName: "Misia Rádio",
-        radioSub: "Kázne, piesne a audioknihy naživo — vo vašom jazyku",
-        radioDesc: "Internetové rádio Misie jedným ťuknutím. Počas kázne sa miesta z Písma zobrazujú práve vtedy, keď zaznejú; piesne majú text a audioknihy odkaz na knihu. Program na týždeň aj to, čo už odznelo, pripomienky, uložené miesta z Písma a kázne od začiatku. Bez prihlásenia a bez reklamy.",
-        radioNote: "Android 7.0 a novší. Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Povolenie na upozornenia sa vyžiada, len ak si nastavíte pripomienku.",
-        wordcastSub: "Kázne vo vašom jazyku, aj bez internetu",
-        wordcastSummary: "Počúvajte kázne Misie vo vybraných jazykoch. Stiahnite si nahrávky na počúvanie bez internetu a vyberte si štandardný alebo jednoduchý režim.",
-        wordcastStatus: "Verejné testovanie · 1.0.1 (1) · Android 8.0 alebo novší",
-        wordcastDownload: "Stiahnuť APK pre Android",
-        wordcastHelp: "Otvorte stiahnutý súbor APK. Ak vás Android vyzve, povoľte inštaláciu z prehliadača.",
-        wordcastDetails: "Funkcie a snímky obrazovky",
-        wordcastFeature1: "Vyhľadávajte v knižnici kázní, filtrujte podľa jazyka a dátumu a prezerajte si kalendár vysielania.",
-        wordcastFeature2: "Počúvajte na pozadí, pokračujte tam, kde ste prestali, upravte rýchlosť prehrávania alebo nastavte časovač vypnutia.",
-        wordcastFeature3: "Sťahujte nahrávky, ukladajte si obľúbené kázne a usporiadajte ich do zbierok. Čítajte dostupné prepisy.",
-        wordcastFeature4: "V jednoduchom režime nájdete väčšie tlačidlá prehrávača a kázne zoradené podľa dátumu.",
-        wordcastShot1: "Domovská obrazovka v štandardnom režime",
-        wordcastShot2: "Knižnica kázní a vyhľadávanie",
-        wordcastShot3: "Veľké tlačidlá prehrávača v jednoduchom režime",
-        linkTerms: "Podmienky používania",
-        deliverySub: "Evidencia doručenia vybavenia zborom",
-        deliveryDesc: "Vybavenie, kontakty, fotografie a záznamy o inštalácii a školení. Po prvom online prihlásení môžete ukladať údaje aj bez internetu; čakajúce zmeny sa odošlú po obnovení pripojenia.",
-        deliveryPending: "Verzia pre Android sa pripravuje. Stiahnutie bude dostupné po dokončení overenia.",
-        deliveryNote: "Android 8.0 a novší. Prístup vyžaduje osobný API kľúč od správcu a oprávnenie pre misijnú sekciu. Pred odinštalovaním synchronizujte všetky čakajúce zmeny.",
-        tagline: "Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.",
-        eventsSub: "Akcie, zhromaždenia a kázne — vždy poruke",
-        eventsDesc: "Informácie o najbližšej akcii a zhromaždeniach sú dostupné pre všetkých. Po prihlásení získate úplné informácie o akcii, MP3 nahrávky kázní a živé vysielania. K dispozícii v slovenčine, češtine a angličtine.",
-        btnAndroid: "Stiahnuť pre Android (APK)",
-        btnAppStore: "Stiahnuť pre iPhone (App Store)",
-        btnWeb: "Webová verzia",
-        btnWebNote: "\u00a0(vyžaduje prihlásenie)",
-        latestVersion: "Aktuálna verzia",
-        songbookName: "Misia Spevník/Songbook",
-        btnWebSongs: "Webová verzia",
-        songbookSub: "Spevník — 2 633 piesní v šiestich jazykoch",
-        songbookDesc: "Kresťanský spevník s piesňami v slovenčine, angličtine, francúzštine, svahilčine, lugande a kinyarwande. Celá zbierka je uložená v telefóne — funguje offline, bez internetu. Vyhľadávanie, obľúbené piesne, nastaviteľná veľkosť písma a tmavý režim.",
-        btnSongbookAppStore: "Stiahnuť pre iPhone a iPad (App Store)",
-        songbookNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Pre iPhone a iPad je aplikácia dostupná v App Store. Prihlásenie nie je potrebné.",
-        timelineName: "Misia Biblická časová os",
-        timelineSub: "18 období, 69 osôb a 235 udalostí",
-        timelineDesc: "Biblické a kresťanské dejiny v jednej časovej osi, od stvorenia po dnešok, s miestami Písma, podrobnými textami a obrázkami. Všetko je uložené v telefóne a funguje offline, bez internetu.",
-        timelineNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Prihlásenie nie je potrebné.",
-        linkPrivacy: "Ochrana súkromia",
-        linkSupport: "Podpora",
-        apkNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Pre iPhone stiahnite aplikáciu z App Store; verzia pre Google Play sa pripravuje.",
-      },
-      cs: {
-        readerSub: "Knihy, oběžníky a přepisy kázání ve vaší kapse",
-        readerDesc: "Čtěte křesťanské publikace z Misia.sk i bez internetu. Vyhledávejte v textu, ukládejte záložky a poznámky a pokračujte od poslední kapitoly. Nastavte si jazyky, velikost písma a vzhled stránky. Bez účtu a bez reklamy.",
-        readerStatus: "iPhone a iPad: dostupné v App Store. Android: uzavřené testování v Google Play; veřejné vydání se připravuje.",
-        readerTestNote: "Přístup pro nové členy skupiny testerů ještě čeká na schválení Googlem (stav k 4. 11. 2026). Stávající pozvaní testeři mohou použít odkaz na testování.",
-        btnPlayTest: "Testovat přes Google Play",
-        btnTesterGroup: "Přidat se do skupiny testerů",
-        radioTestNote: "Google Play: uzavřené testování. Nejprve se přidejte do skupiny testerů se stejným účtem Google, který používáte v Google Play. Poté otevřete odkaz na testování a přihlaste se do testu. Veřejné vydání se připravuje.",
-        readerJoinNote: "Pro Android se nejprve přidejte do skupiny testerů s účtem, který používáte v Google Play. Po schválení přístupu otevřete odkaz na testování a přihlaste se do testu.",
-
-        radioName: "Misia Rádio",
-        radioSub: "Kázání, písně a audioknihy živě — ve vašem jazyce",
-        radioDesc: "Internetové rádio Misie jedním klepnutím. Během kázání se místa z Písma zobrazují právě ve chvíli, kdy zazní; písně mají text a audioknihy odkaz na knihu. Program na týden i to, co už zaznělo, připomínky, uložená místa z Písma a kázání od začátku. Bez přihlášení a bez reklamy.",
-        radioNote: "Android 7.0 a novější. Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Oprávnění k oznámením se vyžádá, jen pokud si nastavíte připomínku.",
-        wordcastSub: "Kázání ve vašem jazyce, i bez internetu",
-        wordcastSummary: "Poslouchejte kázání Misie ve vybraných jazycích. Stáhněte si nahrávky k poslechu bez internetu a vyberte si standardní nebo jednoduchý režim.",
-        wordcastStatus: "Veřejné testování · 1.0.1 (1) · Android 8.0 nebo novější",
-        wordcastDownload: "Stáhnout APK pro Android",
-        wordcastHelp: "Otevřete stažený soubor APK. Pokud vás Android vyzve, povolte instalaci z prohlížeče.",
-        wordcastDetails: "Funkce a snímky obrazovky",
-        wordcastFeature1: "Vyhledávejte v knihovně kázání, filtrujte podle jazyka a data a procházejte kalendář vysílání.",
-        wordcastFeature2: "Poslouchejte na pozadí, pokračujte tam, kde jste skončili, upravte rychlost přehrávání nebo nastavte časovač vypnutí.",
-        wordcastFeature3: "Stahujte nahrávky, ukládejte si oblíbená kázání a řaďte je do sbírek. Čtěte dostupné přepisy.",
-        wordcastFeature4: "V jednoduchém režimu najdete větší tlačítka přehrávače a kázání seřazená podle data.",
-        wordcastShot1: "Domovská obrazovka ve standardním režimu",
-        wordcastShot2: "Knihovna kázání a vyhledávání",
-        wordcastShot3: "Velká tlačítka přehrávače v jednoduchém režimu",
-        linkTerms: "Podmínky používání",
-        deliverySub: "Evidence doručení vybavení sborům",
-        deliveryDesc: "Vybavení, kontakty, fotografie a záznamy o instalaci a školení. Po prvním online přihlášení můžete ukládat údaje i bez internetu; čekající změny se odešlou po obnovení připojení.",
-        deliveryPending: "Verze pro Android se připravuje. Stažení bude dostupné po dokončení ověření.",
-        deliveryNote: "Android 8.0 a novější. Přístup vyžaduje osobní API klíč od správce a oprávnění pro misijní sekci. Před odinstalováním synchronizujte všechny čekající změny.",
-        tagline: "Mobilní aplikace Misie — ke stažení pro Android a iOS.",
-        eventsSub: "Akce, shromáždění a kázání — vždy po ruce",
-        eventsDesc: "Informace o nejbližší akci a shromážděních jsou dostupné všem. Po přihlášení získáte úplné informace o akci, MP3 nahrávky kázání a živá vysílání. K dispozici ve slovenštině, češtině a angličtině.",
-        btnAndroid: "Stáhnout pro Android (APK)",
-        btnAppStore: "Stáhnout pro iPhone (App Store)",
-        btnWeb: "Webová verze",
-        btnWebNote: "\u00a0(vyžaduje přihlášení)",
-        latestVersion: "Aktuální verze",
-        songbookName: "Misia Zpěvník/Songbook",
-        btnWebSongs: "Webová verze",
-        songbookSub: "Zpěvník — 2 633 písní v šesti jazycích",
-        songbookDesc: "Křesťanský zpěvník s písněmi ve slovenštině, angličtině, francouzštině, svahilštině, lugandě a kinyarwandě. Celá sbírka je uložená v telefonu — funguje offline, bez internetu. Vyhledávání, oblíbené písně, nastavitelná velikost písma a tmavý režim.",
-        btnSongbookAppStore: "Stáhnout pro iPhone a iPad (App Store)",
-        songbookNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Pro iPhone a iPad je aplikace dostupná v App Store. Přihlášení není potřeba.",
-        timelineName: "Misia Biblická časová osa",
-        timelineSub: "18 období, 69 osob a 235 událostí",
-        timelineDesc: "Biblické a křesťanské dějiny v jedné časové ose, od stvoření po dnešek, s místy Písma, podrobnými texty a obrázky. Všechno je uložené v telefonu a funguje offline, bez internetu. Aplikace je ve slovenštině a angličtině.",
-        timelineNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Přihlášení není potřeba.",
-        linkPrivacy: "Ochrana soukromí",
-        linkSupport: "Podpora",
-        apkNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Pro iPhone stáhněte aplikaci z App Store; verze pro Google Play se připravuje.",
-      },
-      en: {
-        readerSub: "Books, circular letters and sermon transcripts in your pocket",
-        readerDesc: "Read Christian publications from Misia.sk offline. Search the text, save bookmarks and notes, and continue from your last chapter. Choose your languages, text size and reading theme. No account and no ads.",
-        readerStatus: "iPhone and iPad: available on the App Store. Android: closed testing on Google Play; public release is being prepared.",
-        readerTestNote: "Access for new tester-group members is still awaiting Google approval (checked 4 November 2026). Existing invited testers can use the testing link.",
-        btnPlayTest: "Test on Google Play",
-        btnTesterGroup: "Join the tester group",
-        radioTestNote: "Google Play: closed testing. First join the tester group with the same Google account you use in Google Play. Then open the testing link and opt in. Public release is being prepared.",
-        readerJoinNote: "For Android, first join the tester group with the account you use in Google Play. Once access is approved, open the testing link and opt in.",
-
-        radioName: "Misia Radio",
-        radioSub: "Sermons, songs and audiobooks live — in your language",
-        radioDesc: "Misia's internet radio in one tap. During a sermon, scripture appears as it is read; songs show their lyrics and audiobooks link to the book. The week's programme and what has already played, reminders, saved passages, and sermons from the beginning. No sign-in and no ads.",
-        radioNote: "Android 7.0 or newer. When installing the APK, allow “Install from unknown sources”. Notification permission is requested only if you set a reminder.",
-        wordcastSub: "Sermons in your language, including offline",
-        wordcastSummary: "Listen to Misia sermons in the languages you follow. Download recordings for offline listening and choose Standard or Simple mode.",
-        wordcastStatus: "Public test · 1.0.1 (1) · Android 8.0 or newer",
-        wordcastDownload: "Download Android APK",
-        wordcastHelp: "Open the downloaded APK and allow your browser to install it if Android asks.",
-        wordcastDetails: "Features and screenshots",
-        wordcastFeature1: "Search the sermon library, filter by language and date, and browse the broadcast calendar.",
-        wordcastFeature2: "Stream in the background, pick up where you stopped, and use playback speed or the sleep timer.",
-        wordcastFeature3: "Download recordings, save favourites and organise sermons into collections. Read transcripts where available.",
-        wordcastFeature4: "Switch to Simple mode for larger playback controls and a date-based way to find sermons.",
-        wordcastShot1: "Home in Standard mode",
-        wordcastShot2: "Sermon library and search",
-        wordcastShot3: "Large playback controls in Simple mode",
-        linkTerms: "Terms of Use",
-        deliverySub: "Equipment delivery records for churches",
-        deliveryDesc: "Equipment, contacts, photos, and installation and training records. After your first online sign-in, save work without internet; queued changes upload when connectivity returns.",
-        deliveryPending: "The Android release is being prepared. Downloads will be available after verification is complete.",
-        deliveryNote: "Android 8.0 or later. Access requires an administrator-issued personal API key and mission-section permission. Sync all queued changes before uninstalling.",
-        tagline: "Misia mobile apps — downloads for Android and iOS.",
-        eventsSub: "Events, church services and sermons — always at hand",
-        eventsDesc: "Upcoming event and church-service info is open to everyone. Sign in for complete event information, MP3 sermon recordings and live broadcasts. Available in Slovak, Czech and English.",
-        btnAndroid: "Download for Android (APK)",
-        btnAppStore: "Download for iPhone (App Store)",
-        btnWeb: "Web version",
-        btnWebNote: "\u00a0(requires sign-in)",
-        latestVersion: "Latest version",
-        songbookName: "Misia Songbook",
-        btnWebSongs: "Web version",
-        songbookSub: "Songbook — 2,633 hymns in six languages",
-        songbookDesc: "A Christian hymn songbook with songs in Slovak, English, French, Swahili, Luganda and Kinyarwanda. The whole collection is stored on your phone — it works offline, with no internet. Search, favourites, adjustable text size and dark mode.",
-        btnSongbookAppStore: "Download for iPhone and iPad (App Store)",
-        songbookNote: "When installing the APK, allow “Install from unknown sources”. For iPhone and iPad, download the app from the App Store. No sign-in is required.",
-        timelineName: "Misia Bible Timeline",
-        timelineSub: "18 periods, 69 people and 235 events",
-        timelineDesc: "Bible and Christian history on one timeline, from creation to today, with scripture, detailed accounts and pictures. Everything is stored on your phone and works offline, without internet.",
-        timelineNote: "Allow installing from unknown sources when you install the APK. No sign-in is needed.",
-        linkPrivacy: "Privacy",
-        linkSupport: "Support",
-        apkNote: "When installing the APK, allow “Install from unknown sources”. For iPhone, download the app from the App Store; a Google Play version is in preparation.",
-      },
-    };
-
-    function setLang(lang) {
-      if (!Object.hasOwn(I18N, lang)) lang = "sk";
-      document.documentElement.lang = lang;
-      for (const el of document.querySelectorAll("[data-i18n]")) {
-        const value = I18N[lang][el.dataset.i18n];
-        if (value !== undefined) el.textContent = value;
-      }
-      for (const btn of document.querySelectorAll(".lang button")) {
-        btn.classList.toggle("active", btn.dataset.lang === lang);
-      }
-      // Keep the selected language in copied links, including an app anchor.
-      const url = new URL(window.location.href);
-      url.searchParams.set("lang", lang);
-      window.history.replaceState(null, "", url);
-      try { localStorage.setItem("lang", lang); } catch (_) {}
-    }
-
-    (function () {
-      // A valid shared link overrides the saved choice; otherwise default to Slovak.
-      let lang;
-      try { lang = localStorage.getItem("lang"); } catch (_) {}
-      const requested = new URLSearchParams(window.location.search).get("lang");
-      setLang(Object.hasOwn(I18N, requested) ? requested : lang || "sk");
-    })();
-
-    // The publisher enables downloads only after verifying the signed APK and API.
-    fetch("deliverytracker/release.json", { cache: "no-store" })
-      .then(response => {
-        if (!response.ok) throw new Error("Release status unavailable");
-        return response.json();
-      })
-      .then(release => {
-        if (release.available !== true || !release.version || !Number.isInteger(release.version_code)) return;
-        document.getElementById("deliverytracker-version").textContent = `${release.version} (${release.version_code})`;
-        document.getElementById("deliverytracker-version-date").textContent = release.released_at.slice(0, 10);
-        document.getElementById("deliverytracker-download").hidden = false;
-        document.getElementById("deliverytracker-release-info").hidden = false;
-        document.getElementById("deliverytracker-pending").hidden = true;
-      })
-      .catch(() => { /* Keep the preparation notice if release status cannot be read. */ });
-  </script>
+<div class="wrap">
+  <header>
+    <div class="topbar"><a href="https://nasa.misia.sk">Misia.sk</a><nav class="lang" aria-label="Language">
+      <button type="button" data-lang="sk" lang="sk" aria-label="Slovenčina" aria-pressed="true">SK</button>
+      <button type="button" data-lang="cs" lang="cs" aria-label="Čeština" aria-pressed="false">CS</button>
+      <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+    </nav></div>
+    <h1>MISIA.SK APPS</h1>
+    <p class="sub" data-i18n="tagline">Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.</p>
+  </header>
+  <main>
+    <ul class="catalogue">
+    <li id="reader">
+      <a href="reader/" data-keep-language class="app-row">
+        <img src="assets/reader-icon.jpg" width="54" height="54" alt="">
+        <div class="row-copy"><h2>Misia.sk Reader</h2><div class="sub" data-i18n="readerSub">Knihy, obežníky a prepisy kázní vo vašom vrecku</div></div>
+        <span class="platforms">iPhone · iPad · Android</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+    </li>
+    <li id="events">
+      <a href="events/" data-keep-language class="app-row">
+        <img src="assets/events-icon.png" width="54" height="54" alt="">
+        <div class="row-copy"><h2>Misia Akcie/Events</h2><div class="sub" data-i18n="eventsSub">Akcie, zhromaždenia a kázne — vždy poruke</div></div>
+        <span class="platforms">iPhone · Android</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+    </li>
+    <li id="songbook">
+      <a href="songbook/" data-keep-language class="app-row">
+        <img src="assets/songbook-icon.png" width="54" height="54" alt="">
+        <div class="row-copy"><h2 data-i18n="songbookName">Misia Spevník/Songbook</h2><div class="sub" data-i18n="songbookSub">Spevník — 2 633 piesní v šiestich jazykoch</div></div>
+        <span class="platforms">iPhone · iPad · Android</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+    </li>
+    <li id="bible-timeline">
+      <a href="bible-timeline/" data-keep-language class="app-row">
+        <img src="assets/bible-timeline-icon.png" width="54" height="54" alt="">
+        <div class="row-copy"><h2 data-i18n="timelineName">Misia Biblická časová os</h2><div class="sub" data-i18n="timelineSub">18 období, 69 osôb a 235 udalostí</div></div>
+        <span class="platforms">Android</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+    </li>
+    <li id="radio">
+      <a href="radio/" data-keep-language class="app-row">
+        <img src="assets/radio-icon.png" width="54" height="54" alt="">
+        <div class="row-copy"><h2 data-i18n="radioName">Misia Rádio</h2><div class="sub" data-i18n="radioSub">Kázne, piesne a audioknihy naživo — vo vašom jazyku</div></div>
+        <span class="platforms">Android</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+    </li>
+    <li id="wordcast">
+      <a href="wordcast/" data-keep-language class="app-row">
+        <img src="assets/wordcast-icon.png" width="54" height="54" alt="">
+        <div class="row-copy"><h2>Misia Wordcast</h2><div class="sub" data-i18n="wordcastSub">Kázne vo vašom jazyku, aj bez internetu</div></div>
+        <span class="platforms">iPhone · iPad · Android</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+    </li>
+    <li id="deliverytracker">
+      <a href="deliverytracker/" data-keep-language class="app-row">
+        <img src="assets/deliverytracker-icon.png" width="54" height="54" alt="">
+        <div class="row-copy"><h2>DeliveryTracker</h2><div class="sub" data-i18n="deliverySub">Evidencia doručenia vybavenia zborom</div></div>
+        <span class="platforms">Android</span>
+        <span class="arrow" aria-hidden="true">›</span>
+      </a>
+    </li>
+    </ul>
+  </main>
+  <footer><a href="https://nasa.misia.sk">nasa.misia.sk</a></footer>
+</div>
 </body>
 </html>
