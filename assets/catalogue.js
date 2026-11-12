@@ -1,5 +1,8 @@
 const I18N = {
   sk: {
+    downloadApk: "Stiahnuť APK",
+    playOptIn: "Prihlásiť sa na testovanie",
+    playJoinHelp: "Pridajte sa do skupiny a potom sa prihláste na testovanie s tým istým účtom Google.",
     readerLibraryShot: "Knižnica kníh, obežníkov a prepisov",
     readerReadingShot: "Čítanie kapitoly",
     readerSearchShot: "Vyhľadávanie v texte publikácií",
@@ -26,11 +29,7 @@ const I18N = {
     resources: "Web a podpora",
     readerSub: "Knihy, obežníky a prepisy kázní vo vašom vrecku",
     readerDesc: "Čítajte kresťanské publikácie z Misia.sk aj bez internetu. Vyhľadávajte v texte, ukladajte záložky a poznámky a pokračujte od poslednej kapitoly. Nastavte si jazyky, veľkosť písma a vzhľad stránky. Bez účtu a bez reklamy.",
-    readerTestNote: "Prístup pre nových členov skupiny testerov ešte čaká na schválenie Googlom (stav k 4. 11. 2026). Existujúci pozvaní testeri môžu použiť odkaz na testovanie.",
-    btnPlayTest: "Testovať cez Google Play",
     btnTesterGroup: "Pridať sa do skupiny testerov",
-    radioTestNote: "Google Play: uzavreté testovanie. Najprv sa pridajte do skupiny testerov s rovnakým účtom Google, aký používate v Google Play. Potom otvorte odkaz na testovanie a prihláste sa do testu. Verejné vydanie sa pripravuje.",
-    readerJoinNote: "Pre Android sa najprv pridajte do skupiny testerov s účtom, ktorý používate v Google Play. Po schválení prístupu otvorte odkaz na testovanie a prihláste sa do testu.",
 
     radioName: "Misia Rádio",
     radioSub: "Kázne, piesne a audioknihy naživo — vo vašom jazyku",
@@ -55,7 +54,6 @@ const I18N = {
     tagline: "Mobilné aplikácie Misie — na stiahnutie pre Android a iOS.",
     eventsSub: "Akcie, zhromaždenia a kázne — vždy poruke",
     eventsDesc: "Informácie o najbližšej akcii a zhromaždeniach sú dostupné pre všetkých. Po prihlásení získate úplné informácie o akcii, MP3 nahrávky kázní a živé vysielania. K dispozícii v slovenčine, češtine a angličtine.",
-    btnAndroid: "Stiahnuť pre Android (APK)",
     btnAppStore: "Stiahnuť pre iPhone (App Store)",
     btnWeb: "Webová verzia",
     btnWebNote: "\u00a0(vyžaduje prihlásenie)",
@@ -75,6 +73,9 @@ const I18N = {
     apkNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Pre iPhone stiahnite aplikáciu z App Store; verzia pre Google Play sa pripravuje.",
   },
   cs: {
+    downloadApk: "Stáhnout APK",
+    playOptIn: "Přihlásit se k testování",
+    playJoinHelp: "Přidejte se do skupiny a potom se přihlaste k testování se stejným účtem Google.",
     readerLibraryShot: "Knihovna knih, oběžníků a přepisů",
     readerReadingShot: "Čtení kapitoly",
     readerSearchShot: "Vyhledávání v textu publikací",
@@ -101,11 +102,7 @@ const I18N = {
     resources: "Web a podpora",
     readerSub: "Knihy, oběžníky a přepisy kázání ve vaší kapse",
     readerDesc: "Čtěte křesťanské publikace z Misia.sk i bez internetu. Vyhledávejte v textu, ukládejte záložky a poznámky a pokračujte od poslední kapitoly. Nastavte si jazyky, velikost písma a vzhled stránky. Bez účtu a bez reklamy.",
-    readerTestNote: "Přístup pro nové členy skupiny testerů ještě čeká na schválení Googlem (stav k 4. 11. 2026). Stávající pozvaní testeři mohou použít odkaz na testování.",
-    btnPlayTest: "Testovat přes Google Play",
     btnTesterGroup: "Přidat se do skupiny testerů",
-    radioTestNote: "Google Play: uzavřené testování. Nejprve se přidejte do skupiny testerů se stejným účtem Google, který používáte v Google Play. Poté otevřete odkaz na testování a přihlaste se do testu. Veřejné vydání se připravuje.",
-    readerJoinNote: "Pro Android se nejprve přidejte do skupiny testerů s účtem, který používáte v Google Play. Po schválení přístupu otevřete odkaz na testování a přihlaste se do testu.",
 
     radioName: "Misia Rádio",
     radioSub: "Kázání, písně a audioknihy živě — ve vašem jazyce",
@@ -130,7 +127,6 @@ const I18N = {
     tagline: "Mobilní aplikace Misie — ke stažení pro Android a iOS.",
     eventsSub: "Akce, shromáždění a kázání — vždy po ruce",
     eventsDesc: "Informace o nejbližší akci a shromážděních jsou dostupné všem. Po přihlášení získáte úplné informace o akci, MP3 nahrávky kázání a živá vysílání. K dispozici ve slovenštině, češtině a angličtině.",
-    btnAndroid: "Stáhnout pro Android (APK)",
     btnAppStore: "Stáhnout pro iPhone (App Store)",
     btnWeb: "Webová verze",
     btnWebNote: "\u00a0(vyžaduje přihlášení)",
@@ -150,6 +146,9 @@ const I18N = {
     apkNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Pro iPhone stáhněte aplikaci z App Store; verze pro Google Play se připravuje.",
   },
   en: {
+    downloadApk: "Download APK",
+    playOptIn: "Opt in to testing",
+    playJoinHelp: "Join the group first, then opt in to the test with the same Google account you use in Google Play.",
     readerLibraryShot: "Library of books, circular letters and transcripts",
     readerReadingShot: "Reading a chapter",
     readerSearchShot: "Searching the full text of publications",
@@ -176,11 +175,7 @@ const I18N = {
     resources: "Web and support",
     readerSub: "Books, circular letters and sermon transcripts in your pocket",
     readerDesc: "Read Christian publications from Misia.sk offline. Search the text, save bookmarks and notes, and continue from your last chapter. Choose your languages, text size and reading theme. No account and no ads.",
-    readerTestNote: "Access for new tester-group members is still awaiting Google approval (checked 4 November 2026). Existing invited testers can use the testing link.",
-    btnPlayTest: "Test on Google Play",
     btnTesterGroup: "Join the tester group",
-    radioTestNote: "Google Play: closed testing. First join the tester group with the same Google account you use in Google Play. Then open the testing link and opt in. Public release is being prepared.",
-    readerJoinNote: "For Android, first join the tester group with the account you use in Google Play. Once access is approved, open the testing link and opt in.",
 
     radioName: "Misia Radio",
     radioSub: "Sermons, songs and audiobooks live — in your language",
@@ -205,7 +200,6 @@ const I18N = {
     tagline: "Misia mobile apps — downloads for Android and iOS.",
     eventsSub: "Events, church services and sermons — always at hand",
     eventsDesc: "Upcoming event and church-service info is open to everyone. Sign in for complete event information, MP3 sermon recordings and live broadcasts. Available in Slovak, Czech and English.",
-    btnAndroid: "Download for Android (APK)",
     btnAppStore: "Download for iPhone (App Store)",
     btnWeb: "Web version",
     btnWebNote: "\u00a0(requires sign-in)",
@@ -235,6 +229,10 @@ function setLanguage(lang) {
   }
   for (const button of document.querySelectorAll("[data-lang]")) {
     button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
+  }
+  for (const badge of document.querySelectorAll("[data-app-store-badge]")) {
+    badge.src = `../assets/app-store-${lang}.svg`;
+    badge.alt = I18N[lang][badge.dataset.appStoreBadge];
   }
   for (const link of document.querySelectorAll("[data-keep-language]")) {
     const destination = new URL(link.href);

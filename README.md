@@ -37,7 +37,7 @@ Contact: [info@misia.sk](mailto:info@misia.sk) · [www.misia.sk](https://www.mis
 
 Reader, Songbook, Events and Misia Wordcast are publicly available on the Apple App Store. Their links were verified against Apple's Slovak public catalogue.
 
-Radio and Reader have Google Play closed tests, not public production releases. New volunteers first join [Misia App Testers](https://groups.google.com/g/misia-app-testers) using their Play account, then opt in separately for each app. Radio group access is available; Reader group access is still awaiting approval. Existing invited Alpha testers can access both. These states come from the release tracker's 4 November Console evidence; recheck before changing availability labels.
+Radio, Reader and Misia Wordcast have active Google Play closed tests. Join [Misia App Testers](https://groups.google.com/g/misia-app-testers) with the account you use in Google Play, then open the app page and opt in to its test.
 
 This catalogue is for Misia apps; Builder for BuildTrack has a separate business audience.
 

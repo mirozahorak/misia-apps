@@ -156,3 +156,33 @@ footer { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: .85
   .gallery { grid-auto-flow: column; grid-auto-columns: 68%; grid-template-columns: none; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .5rem; }
   .gallery figure { scroll-snap-align: start; }
 }
+
+.app-store-badge { display: block; width: fit-content; margin: 4px 0; border-radius: .4rem; }
+.app-store-badge img { display: block; height: 40px; width: auto; }
+.download-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 48px;
+  padding: .3rem .75rem;
+  border: 1px solid #737373;
+  border-radius: .5rem;
+  background: #101010;
+  color: #fff;
+  text-decoration: none;
+  line-height: 1.2;
+}
+.download-badge:hover { background: #303030; }
+.download-badge svg { width: 25px; height: 25px; color: #a4e9c7; flex: none; }
+.download-badge small, .download-badge strong { display: block; }
+.download-badge small { font-size: .72rem; }
+.download-badge strong { font-size: 1.05rem; }
+.play-mark {
+  width: 20px;
+  height: 23px;
+  flex: none;
+  background: conic-gradient(from 65deg at 42% 50%, #ffcf43 0 27%, #ff5357 27% 50%, #48a6ff 50% 78%, #52d88c 78%);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
