@@ -89,6 +89,17 @@
     .lang button.active {
       background: var(--primary); color: var(--primary-ink); border-color: var(--primary);
     }
+    .wordcast-preview { margin-top: 18px; border-top: 1px solid var(--outline); padding-top: 14px; }
+    .wordcast-preview summary { cursor: pointer; color: var(--primary); font-weight: 600; }
+    .wordcast-features { margin: 12px 0; padding-inline-start: 20px; color: var(--muted); }
+    .wordcast-features li + li { margin-top: 6px; }
+    .wordcast-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .wordcast-gallery img { display: block; width: 100%; height: auto; border: 1px solid var(--outline); border-radius: 10px; }
+    .wordcast-gallery figcaption { margin-top: 5px; color: var(--muted); font-size: .85rem; }
+    @media (max-width: 520px) {
+      .wordcast-gallery { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+      .wordcast-gallery figure { flex: 0 0 58%; scroll-snap-align: start; }
+    }
   </style>
 </head>
 <body>
@@ -303,8 +314,41 @@
           <div class="sub" data-i18n="wordcastSub">Kázne vo vašom jazyku, aj bez internetu</div>
         </div>
       </div>
-      <p class="desc" data-i18n="wordcastDesc">Počúvajte kázne, sledujte vybrané jazyky, sťahujte nahrávky a čítajte dostupné prepisy. Obľúbené položky, zbierky a priebeh počúvania zostávajú vo vašom zariadení. Bez účtu a bez reklamy.</p>
-      <p class="note" data-i18n="wordcastNote">Verzia pre iPhone a iPad sa pripravuje. Informácie o podpore a ochrane súkromia sú dostupné nižšie.</p>
+      <p class="desc" data-i18n="wordcastSummary">Počúvajte kázne Misie vo vybraných jazykoch. Stiahnite si nahrávky na počúvanie bez internetu a vyberte si štandardný alebo jednoduchý režim.</p>
+      <div class="buttons">
+        <a class="btn primary" href="https://github.com/mirozahorak/misia-apps/releases/download/wordcast-v1.0.1-1/misia-wordcast.apk" data-i18n="wordcastDownload">Stiahnuť APK pre Android</a>
+      </div>
+      <p class="note"><strong data-i18n="wordcastStatus">Verejné testovanie · 1.0.1 (1) · Android 8.0 alebo novší</strong></p>
+      <p class="note" data-i18n="wordcastHelp">Otvorte stiahnutý súbor APK. Ak vás Android vyzve, povoľte inštaláciu z prehliadača. Vydanie pre iPhone a iPad sa pripravuje.</p>
+      <details class="wordcast-preview" open>
+        <summary data-i18n="wordcastDetails">Funkcie a snímky obrazovky</summary>
+        <ul class="wordcast-features">
+          <li data-i18n="wordcastFeature1">Vyhľadávajte v knižnici kázní, filtrujte podľa jazyka a dátumu a prezerajte si kalendár vysielania.</li>
+          <li data-i18n="wordcastFeature2">Počúvajte na pozadí, pokračujte tam, kde ste prestali, upravte rýchlosť prehrávania alebo nastavte časovač vypnutia.</li>
+          <li data-i18n="wordcastFeature3">Sťahujte nahrávky, ukladajte si obľúbené kázne a usporiadajte ich do zbierok. Čítajte dostupné prepisy.</li>
+          <li data-i18n="wordcastFeature4">V jednoduchom režime nájdete väčšie tlačidlá prehrávača a kázne zoradené podľa dátumu.</li>
+        </ul>
+        <div class="wordcast-gallery">
+          <figure>
+            <a href="wordcast/screenshots/android-home.webp" aria-labelledby="wordcast-shot-1">
+              <img src="wordcast/screenshots/android-home.webp" alt="" width="900" height="1800" loading="lazy">
+            </a>
+            <figcaption id="wordcast-shot-1" data-i18n="wordcastShot1">Domovská obrazovka v štandardnom režime</figcaption>
+          </figure>
+          <figure>
+            <a href="wordcast/screenshots/android-sermons.webp" aria-labelledby="wordcast-shot-2">
+              <img src="wordcast/screenshots/android-sermons.webp" alt="" width="900" height="1800" loading="lazy">
+            </a>
+            <figcaption id="wordcast-shot-2" data-i18n="wordcastShot2">Knižnica kázní a vyhľadávanie</figcaption>
+          </figure>
+          <figure>
+            <a href="wordcast/screenshots/android-simple-player.webp" aria-labelledby="wordcast-shot-3">
+              <img src="wordcast/screenshots/android-simple-player.webp" alt="" width="900" height="1800" loading="lazy">
+            </a>
+            <figcaption id="wordcast-shot-3" data-i18n="wordcastShot3">Veľké tlačidlá prehrávača v jednoduchom režime</figcaption>
+          </figure>
+        </div>
+      </details>
       <p class="note">
         <a href="wordcast/privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a> ·
         <a href="wordcast/support/" data-i18n="linkSupport">Podpora</a> ·
@@ -360,8 +404,18 @@
         radioDesc: "Internetové rádio Misie jedným ťuknutím. Počas kázne sa miesta z Písma zobrazujú práve vtedy, keď zaznejú; piesne majú text a audioknihy odkaz na knihu. Program na týždeň aj to, čo už odznelo, pripomienky, uložené miesta z Písma a kázne od začiatku. Bez prihlásenia a bez reklamy.",
         radioNote: "Android 7.0 a novší. Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Povolenie na upozornenia sa vyžiada, len ak si nastavíte pripomienku.",
         wordcastSub: "Kázne vo vašom jazyku, aj bez internetu",
-        wordcastDesc: "Počúvajte kázne, sledujte vybrané jazyky, sťahujte nahrávky a čítajte dostupné prepisy. Obľúbené položky, zbierky a priebeh počúvania zostávajú vo vašom zariadení. Bez účtu a bez reklamy.",
-        wordcastNote: "Verzia pre iPhone a iPad sa pripravuje. Informácie o podpore a ochrane súkromia sú dostupné nižšie.",
+        wordcastSummary: "Počúvajte kázne Misie vo vybraných jazykoch. Stiahnite si nahrávky na počúvanie bez internetu a vyberte si štandardný alebo jednoduchý režim.",
+        wordcastStatus: "Verejné testovanie · 1.0.1 (1) · Android 8.0 alebo novší",
+        wordcastDownload: "Stiahnuť APK pre Android",
+        wordcastHelp: "Otvorte stiahnutý súbor APK. Ak vás Android vyzve, povoľte inštaláciu z prehliadača. Vydanie pre iPhone a iPad sa pripravuje.",
+        wordcastDetails: "Funkcie a snímky obrazovky",
+        wordcastFeature1: "Vyhľadávajte v knižnici kázní, filtrujte podľa jazyka a dátumu a prezerajte si kalendár vysielania.",
+        wordcastFeature2: "Počúvajte na pozadí, pokračujte tam, kde ste prestali, upravte rýchlosť prehrávania alebo nastavte časovač vypnutia.",
+        wordcastFeature3: "Sťahujte nahrávky, ukladajte si obľúbené kázne a usporiadajte ich do zbierok. Čítajte dostupné prepisy.",
+        wordcastFeature4: "V jednoduchom režime nájdete väčšie tlačidlá prehrávača a kázne zoradené podľa dátumu.",
+        wordcastShot1: "Domovská obrazovka v štandardnom režime",
+        wordcastShot2: "Knižnica kázní a vyhľadávanie",
+        wordcastShot3: "Veľké tlačidlá prehrávača v jednoduchom režime",
         linkTerms: "Podmienky používania",
         deliverySub: "Evidencia doručenia vybavenia zborom",
         deliveryDesc: "Vybavenie, kontakty, fotografie a záznamy o inštalácii a školení. Po prvom online prihlásení môžete ukladať údaje aj bez internetu; čakajúce zmeny sa odošlú po obnovení pripojenia.",
@@ -404,8 +458,18 @@
         radioDesc: "Internetové rádio Misie jedním klepnutím. Během kázání se místa z Písma zobrazují právě ve chvíli, kdy zazní; písně mají text a audioknihy odkaz na knihu. Program na týden i to, co už zaznělo, připomínky, uložená místa z Písma a kázání od začátku. Bez přihlášení a bez reklamy.",
         radioNote: "Android 7.0 a novější. Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Oprávnění k oznámením se vyžádá, jen pokud si nastavíte připomínku.",
         wordcastSub: "Kázání ve vašem jazyce, i bez internetu",
-        wordcastDesc: "Poslouchejte kázání, sledujte vybrané jazyky, stahujte nahrávky a čtěte dostupné přepisy. Oblíbené položky, sbírky a průběh poslechu zůstávají ve vašem zařízení. Bez účtu a bez reklamy.",
-        wordcastNote: "Verze pro iPhone a iPad se připravuje. Informace o podpoře a ochraně soukromí jsou dostupné níže.",
+        wordcastSummary: "Poslouchejte kázání Misie ve vybraných jazycích. Stáhněte si nahrávky k poslechu bez internetu a vyberte si standardní nebo jednoduchý režim.",
+        wordcastStatus: "Veřejné testování · 1.0.1 (1) · Android 8.0 nebo novější",
+        wordcastDownload: "Stáhnout APK pro Android",
+        wordcastHelp: "Otevřete stažený soubor APK. Pokud vás Android vyzve, povolte instalaci z prohlížeče. Vydání pro iPhone a iPad se připravuje.",
+        wordcastDetails: "Funkce a snímky obrazovky",
+        wordcastFeature1: "Vyhledávejte v knihovně kázání, filtrujte podle jazyka a data a procházejte kalendář vysílání.",
+        wordcastFeature2: "Poslouchejte na pozadí, pokračujte tam, kde jste skončili, upravte rychlost přehrávání nebo nastavte časovač vypnutí.",
+        wordcastFeature3: "Stahujte nahrávky, ukládejte si oblíbená kázání a řaďte je do sbírek. Čtěte dostupné přepisy.",
+        wordcastFeature4: "V jednoduchém režimu najdete větší tlačítka přehrávače a kázání seřazená podle data.",
+        wordcastShot1: "Domovská obrazovka ve standardním režimu",
+        wordcastShot2: "Knihovna kázání a vyhledávání",
+        wordcastShot3: "Velká tlačítka přehrávače v jednoduchém režimu",
         linkTerms: "Podmínky používání",
         deliverySub: "Evidence doručení vybavení sborům",
         deliveryDesc: "Vybavení, kontakty, fotografie a záznamy o instalaci a školení. Po prvním online přihlášení můžete ukládat údaje i bez internetu; čekající změny se odešlou po obnovení připojení.",
@@ -448,8 +512,18 @@
         radioDesc: "Misia's internet radio in one tap. During a sermon, scripture appears as it is read; songs show their lyrics and audiobooks link to the book. The week's programme and what has already played, reminders, saved passages, and sermons from the beginning. No sign-in and no ads.",
         radioNote: "Android 7.0 or newer. When installing the APK, allow “Install from unknown sources”. Notification permission is requested only if you set a reminder.",
         wordcastSub: "Sermons in your language, including offline",
-        wordcastDesc: "Listen to sermons, follow languages, download recordings and read available transcripts. Favourites, collections and listening progress stay on your device. No account and no advertising.",
-        wordcastNote: "The iPhone and iPad release is being prepared. Support and privacy information is available below.",
+        wordcastSummary: "Listen to Misia sermons in the languages you follow. Download recordings for offline listening and choose Standard or Simple mode.",
+        wordcastStatus: "Public test · 1.0.1 (1) · Android 8.0 or newer",
+        wordcastDownload: "Download Android APK",
+        wordcastHelp: "Open the downloaded APK and allow your browser to install it if Android asks. The iPhone and iPad release is being prepared.",
+        wordcastDetails: "Features and screenshots",
+        wordcastFeature1: "Search the sermon library, filter by language and date, and browse the broadcast calendar.",
+        wordcastFeature2: "Stream in the background, pick up where you stopped, and use playback speed or the sleep timer.",
+        wordcastFeature3: "Download recordings, save favourites and organise sermons into collections. Read transcripts where available.",
+        wordcastFeature4: "Switch to Simple mode for larger playback controls and a date-based way to find sermons.",
+        wordcastShot1: "Home in Standard mode",
+        wordcastShot2: "Sermon library and search",
+        wordcastShot3: "Large playback controls in Simple mode",
         linkTerms: "Terms of Use",
         deliverySub: "Equipment delivery records for churches",
         deliveryDesc: "Equipment, contacts, photos, and installation and training records. After your first online sign-in, save work without internet; queued changes upload when connectivity returns.",
