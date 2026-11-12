@@ -1,5 +1,11 @@
 const I18N = {
   sk: {
+    readerLibraryShot: "Knižnica kníh, obežníkov a prepisov",
+    readerReadingShot: "Čítanie kapitoly",
+    readerSearchShot: "Vyhľadávanie v texte publikácií",
+    timelinePeriodsShot: "Zoznam biblických období",
+    timelineEventsShot: "Udalosti na časovej osi",
+    timelineEventShot: "Biblická udalosť s úryvkom z Písma",
     deliverytrackerShot2: "Pridávanie dodávky krok za krokom.",
     deliverytrackerShot1: "Zbor a správa o dodávke.",
     deliverytrackerShot0: "Správy o dodávkach uložené v zariadení.",
@@ -69,6 +75,12 @@ const I18N = {
     apkNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Pre iPhone stiahnite aplikáciu z App Store; verzia pre Google Play sa pripravuje.",
   },
   cs: {
+    readerLibraryShot: "Knihovna knih, oběžníků a přepisů",
+    readerReadingShot: "Čtení kapitoly",
+    readerSearchShot: "Vyhledávání v textu publikací",
+    timelinePeriodsShot: "Seznam biblických období",
+    timelineEventsShot: "Události na časové ose",
+    timelineEventShot: "Biblická událost s úryvkem z Písma",
     deliverytrackerShot2: "Přidávání dodávky krok za krokem.",
     deliverytrackerShot1: "Sbor a zpráva o dodávce.",
     deliverytrackerShot0: "Zprávy o dodávkách uložené v zařízení.",
@@ -138,6 +150,12 @@ const I18N = {
     apkNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Pro iPhone stáhněte aplikaci z App Store; verze pro Google Play se připravuje.",
   },
   en: {
+    readerLibraryShot: "Library of books, circular letters and transcripts",
+    readerReadingShot: "Reading a chapter",
+    readerSearchShot: "Searching the full text of publications",
+    timelinePeriodsShot: "List of Biblical periods",
+    timelineEventsShot: "Events on the timeline",
+    timelineEventShot: "A Biblical event with a Scripture passage",
     deliverytrackerShot2: "Adding a delivery, one step at a time.",
     deliverytrackerShot1: "The church and delivery report.",
     deliverytrackerShot0: "Delivery reports saved on the device.",
