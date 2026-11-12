@@ -10,7 +10,7 @@ Mobile apps of Misia (Slobodná ľudová misia), available for download at
 | **Misia Spevník/Songbook** | A Christian songbook in six languages that works offline | Android, iPhone, iPad |
 | **Misia Biblická časová os** | Bible and Christian history on one timeline, with scripture, also offline | Android |
 | **Misia Rádio** | Misia's internet radio: sermons, songs and audiobooks live, with scripture, lyrics and the week's programme | Android |
-| **Wordcast** | Sermon search, offline listening, and Standard and Simple modes | [Android public test](https://github.com/mirozahorak/misia-apps/releases/download/wordcast-v1.0.1-1/misia-wordcast.apk), iPhone/iPad (in preparation) |
+| **Misia Wordcast** | Sermon search, offline listening, and Standard and Simple modes | [Android public test](https://github.com/mirozahorak/misia-apps/releases/download/wordcast-v1.0.1-1/misia-wordcast.apk), iPhone/iPad (in preparation) |
 | **DeliveryTracker** | Equipment delivery records for churches (for authorised mission staff) | Android |
 
 ## Privacy and support
@@ -22,7 +22,7 @@ Mobile apps of Misia (Slobodná ľudová misia), available for download at
 | Misia Songbook | [privacy](https://mirozahorak.github.io/misia-apps/songbook/privacy/) | [support](https://mirozahorak.github.io/misia-apps/songbook/support/) |
 | Misia Bible Timeline | [privacy](https://mirozahorak.github.io/misia-apps/bible-timeline/privacy/) | [support](https://mirozahorak.github.io/misia-apps/bible-timeline/support/) |
 | Misia Rádio | [privacy](https://mirozahorak.github.io/misia-apps/radio/privacy/) | [support](https://mirozahorak.github.io/misia-apps/radio/support/) |
-| Wordcast | [privacy](https://mirozahorak.github.io/misia-apps/wordcast/privacy/) | [support](https://mirozahorak.github.io/misia-apps/wordcast/support/) |
+| Misia Wordcast | [privacy](https://mirozahorak.github.io/misia-apps/wordcast/privacy/) | [support](https://mirozahorak.github.io/misia-apps/wordcast/support/) |
 | DeliveryTracker | — | [support](https://mirozahorak.github.io/misia-apps/deliverytracker/support/) |
 
 Android apps are distributed as APK files from this page. When installing,
