@@ -10,7 +10,7 @@ Mobile apps of Misia (Slobodná ľudová misia), available for download at
 | **[Misia Spevník/Songbook](songbook/)** | A Christian songbook in six languages that works offline | Android, iPhone, iPad |
 | **[Misia Biblická časová os](bible-timeline/)** | Bible and Christian history on one timeline, with scripture, also offline | Android |
 | **[Misia Rádio](radio/)** | Misia's internet radio: sermons, songs and audiobooks live, with scripture, lyrics and the week's programme | Android |
-| **[Misia Wordcast](wordcast/)** | Sermon search, offline listening, and Standard and Simple modes | [Android public test](https://github.com/mirozahorak/misia-apps/releases/download/wordcast-v1.0.1-1/misia-wordcast.apk), [iPhone/iPad (App Store)](https://apps.apple.com/app/id6824054088) |
+| **[Misia Wordcast](wordcast/)** | Sermon search, offline listening, and Standard and Simple modes | [Android public test](https://github.com/mirozahorak/misia-apps/releases/download/wordcast-v1.1-2/misia-wordcast.apk), [iPhone/iPad (App Store)](https://apps.apple.com/app/id6824054088) |
 | **[DeliveryTracker](deliverytracker/)** | Equipment delivery records for churches (for authorised mission staff) | Android |
 
 ## Privacy and support
