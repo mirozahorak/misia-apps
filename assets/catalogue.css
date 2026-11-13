@@ -186,3 +186,7 @@ footer { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: .85
   background: conic-gradient(from 65deg at 42% 50%, #ffcf43 0 27%, #ff5357 27% 50%, #48a6ff 50% 78%, #52d88c 78%);
   clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
+
+.updates-link { margin-top: 1.25rem; }
+.updates-link .btn { background: transparent; color: var(--accent); }
+.updates-link p { margin-bottom: .45rem; color: var(--ink); font-weight: 650; }

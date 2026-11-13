@@ -1,5 +1,7 @@
 const I18N = {
   sk: {
+    subscribeUpdates: "Dostávať novinky o aplikáciách e-mailom",
+    downloadUpdatePrompt: "Chcete vedieť, keď vyjde ďalšia verzia tejto aplikácie?",
     downloadApk: "Stiahnuť APK",
     playOptIn: "Prihlásiť sa na testovanie",
     playJoinHelp: "Pridajte sa do skupiny a potom sa prihláste na testovanie s tým istým účtom Google.",
@@ -73,6 +75,8 @@ const I18N = {
     apkNote: "Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“. Pre iPhone stiahnite aplikáciu z App Store; verzia pre Google Play sa pripravuje.",
   },
   cs: {
+    subscribeUpdates: "Dostávat novinky o aplikacích e-mailem",
+    downloadUpdatePrompt: "Chcete vědět, až vyjde další verze této aplikace?",
     downloadApk: "Stáhnout APK",
     playOptIn: "Přihlásit se k testování",
     playJoinHelp: "Přidejte se do skupiny a potom se přihlaste k testování se stejným účtem Google.",
@@ -146,6 +150,8 @@ const I18N = {
     apkNote: "Při instalaci APK povolte „Instalovat z neznámých zdrojů“. Pro iPhone stáhněte aplikaci z App Store; verze pro Google Play se připravuje.",
   },
   en: {
+    subscribeUpdates: "Get app updates by email",
+    downloadUpdatePrompt: "Want an email when the next version of this app is released?",
     downloadApk: "Download APK",
     playOptIn: "Opt in to testing",
     playJoinHelp: "Join the group first, then opt in to the test with the same Google account you use in Google Play.",
@@ -239,6 +245,11 @@ function setLanguage(lang) {
     destination.searchParams.set("lang", lang);
     link.href = destination.href;
   }
+  for (const link of document.querySelectorAll("[data-update-subscription]")) {
+    const destination = new URL(link.href);
+    destination.searchParams.set("locale", lang);
+    link.href = destination.href;
+  }
   const url = new URL(window.location.href);
   url.searchParams.set("lang", lang);
   window.history.replaceState(null, "", url);
@@ -252,6 +263,18 @@ setLanguage(Object.hasOwn(I18N, requestedLanguage) ? requestedLanguage : savedLa
 
 for (const button of document.querySelectorAll("[data-lang]")) {
   button.addEventListener("click", () => setLanguage(button.dataset.lang));
+}
+
+const downloadUpdatePrompt = document.getElementById("download-update-prompt");
+if (downloadUpdatePrompt) {
+  for (const link of document.querySelectorAll("[data-app-download]")) {
+    link.addEventListener("click", event => {
+      downloadUpdatePrompt.hidden = false;
+      if (!event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey) {
+        downloadUpdatePrompt.focus();
+      }
+    });
+  }
 }
 
 // Keep the download hidden until the published release manifest is available.
