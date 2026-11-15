@@ -190,3 +190,27 @@ footer { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: .85
 .updates-link { margin-top: 1.25rem; }
 .updates-link .btn { background: transparent; color: var(--accent); }
 .updates-link p { margin-bottom: .45rem; color: var(--ink); font-weight: 650; }
+
+.features { margin: 1.75rem 0; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: .9rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: .75rem;
+}
+.feature-list li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: .75rem;
+  padding: .9rem 1rem;
+}
+.feature-list h3 { margin: 0 0 .3rem; font-size: 1rem; line-height: 1.3; }
+.feature-list p { color: var(--muted); font-size: .92rem; }
+.gallery-wide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gallery-wide figure:first-child { grid-column: 1 / -1; }
+@media (max-width: 36rem) {
+  .gallery-wide { grid-auto-columns: 88%; grid-template-columns: none; }
+  .gallery-wide figure:first-child { grid-column: auto; }
+}

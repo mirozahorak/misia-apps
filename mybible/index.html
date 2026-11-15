@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyBible.rs</title>
+  <meta name="description" content="Bible study on the Mac — translations side by side, fast search, notes and studies. Works with MyBible modules.">
+  <link rel="icon" href="../assets/mybible-icon.png">
+  <link rel="stylesheet" href="../assets/catalogue.css">
+  <script src="../assets/catalogue.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <a href="../#mybible" data-keep-language data-i18n="allApps">Všetky aplikácie</a>
+    <nav class="lang" aria-label="Language">
+      <button type="button" data-lang="sk" lang="sk" aria-label="Slovenčina" aria-pressed="true">SK</button>
+      <button type="button" data-lang="cs" lang="cs" aria-label="Čeština" aria-pressed="false">CS</button>
+      <button type="button" data-lang="en" lang="en" aria-label="English" aria-pressed="false">EN</button>
+    </nav>
+  </header>
+  <main>
+    <div class="app-head">
+      <img src="../assets/mybible-icon.png" width="82" height="82" alt="">
+      <div><h1>MyBible.rs</h1><div class="sub" data-i18n="mybibleSub">Štúdium Biblie na Macu — preklady, porovnanie, vyhľadávanie a poznámky</div></div>
+    </div>
+    <p class="desc" data-i18n="mybibleDesc">MyBible.rs je pokojné miesto na čítanie a štúdium Písma na Macu. Otvorte viac prekladov vedľa seba, prehľadajte celú Bibliu za okamih, píšte si poznámky a zbierajte miesta do vlastných štúdií. Funguje s modulmi formátu MyBible a anglická King James Version je priložená. Všetko zostáva vo vašom počítači — bez účtu a bez reklamy.</p>
+    <section class="updates-link" aria-label="App update emails">
+      <p id="download-update-prompt" tabindex="-1" data-i18n="downloadUpdatePrompt" hidden>Chcete vedieť, keď vyjde ďalšia verzia tejto aplikácie?</p>
+      <a class="btn" href="https://nasa.misia.sk/app-updates/subscribe?locale=sk" data-update-subscription data-i18n="subscribeUpdates">Dostávať novinky o aplikáciách e-mailom</a>
+    </section>
+    <div class="actions">
+        <section class="action">
+          <h2 data-i18n="macHeading">macOS</h2>
+          <div class="buttons">
+            <a class="download-badge" data-app-download href="https://github.com/mirozahorak/misia-apps/releases/download/mybible-latest/MyBible.rs.dmg"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 4.5A1.5 1.5 0 0 1 4.5 3h15A1.5 1.5 0 0 1 21 4.5v10a1.5 1.5 0 0 1-1.5 1.5H14l.5 3H17a.75.75 0 0 1 0 1.5H7A.75.75 0 0 1 7 19h2.5l.5-3H4.5A1.5 1.5 0 0 1 3 14.5zm1.5 0v10h15v-10z"/></svg><span><small data-i18n="downloadDmg">Stiahnuť DMG</small><strong>macOS</strong></span></a>
+          </div>
+          <p class="note">
+        <span data-i18n="latestVersion">Aktuálna verzia</span>:
+        <strong>0.1.0</strong>
+      </p>
+          <p class="note" data-i18n="mybibleNote">macOS 10.15 alebo novší, Apple Silicon aj Intel. Otvorte stiahnutý súbor a presuňte MyBible.rs do priečinka Aplikácie. Aplikácia je podpísaná a overená spoločnosťou Apple.</p>
+        </section>
+    </div>
+    <section class="features">
+      <h2 data-i18n="featuresHeading">Čo aplikácia dokáže</h2>
+      <ul class="feature-list">
+        <li><h3 data-i18n="mbF1t">Čítanie podľa vás</h3><p data-i18n="mbF1d">Režimy Čítanie, Štúdium a Porovnanie. Šesť farebných motívov vrátane sépie a nočného, voľba písma, veľkosti a riadkovania, verše v odsekoch alebo každý na novom riadku a Ježišove slová červenou.</p></li>
+        <li><h3 data-i18n="mbF2t">Porovnanie prekladov</h3><p data-i18n="mbF2d">Až tri preklady vedľa seba, synchronizované pri listovaní. Verše sa zarovnajú aj vtedy, keď preklady číslujú inak.</p></li>
+        <li><h3 data-i18n="mbF3t">Rýchle vyhľadávanie</h3><p data-i18n="mbF3d">Hľadajte v celej Biblii, v zákone alebo v jednej knihe. Presná fráza, bez ohľadu na diakritiku, výsledky zoskupené podľa kníh s grafom výskytu, náhľad kontextu a kopírovanie alebo export.</p></li>
+        <li><h3 data-i18n="mbF4t">Nástroje na štúdium</h3><p data-i18n="mbF4d">Strongove čísla so slovníkmi, poznámky pod čiarou, krížové odkazy, komentáre a slovníky z modulov MyBible.</p></li>
+        <li><h3 data-i18n="mbF5t">Poznámky, zvýraznenia a štúdie</h3><p data-i18n="mbF5d">Poznámka ku každému veršu, zvýraznenie farbou, záložky a vlastné štúdie so skupinami a štítkami. Štúdie vyexportujete do Markdownu.</p></li>
+        <li><h3 data-i18n="mbF6t">Knižnica modulov</h3><p data-i18n="mbF6d">Sťahujte Biblie, slovníky a komentáre z verejných zdrojov modulov MyBible alebo použite svoj existujúci priečinok MyBible.</p></li>
+        <li><h3 data-i18n="mbF7t">Kázne a knihy Misie</h3><p data-i18n="mbF7d">Panel Zdroje ukazuje kázne a knihy Misie, ktoré sa týkajú čítaného miesta. Po jednej synchronizácii sú dostupné aj bez internetu.</p></li>
+        <li><h3 data-i18n="mbF8t">Súkromne a offline</h3><p data-i18n="mbF8d">Bez účtu, reklamy a sledovania. Poznámky a nastavenia sú uložené len v Macu, so zálohou a obnovením. Internet je potrebný iba na sťahovanie modulov a synchronizáciu.</p></li>
+      </ul>
+    </section>
+    <section class="screens">
+      <h2 data-i18n="screenshots">Snímky obrazovky</h2>
+      <div class="gallery gallery-wide">
+        <figure>
+          <a href="screenshots/study.webp" aria-labelledby="mbShotStudy">
+            <img src="screenshots/study.webp" width="1770" height="1200" alt="" loading="lazy">
+          </a>
+          <figcaption id="mbShotStudy" data-i18n="mbShotStudy">Štúdium: knižnica, text so Strongovými číslami a poznámka k veršu</figcaption>
+        </figure>
+        <figure>
+          <a href="screenshots/compare.webp" aria-labelledby="mbShotCompare">
+            <img src="screenshots/compare.webp" width="1770" height="1200" alt="" loading="lazy">
+          </a>
+          <figcaption id="mbShotCompare" data-i18n="mbShotCompare">Porovnanie King James Version a Roháčkovho prekladu v nočnom motíve</figcaption>
+        </figure>
+        <figure>
+          <a href="screenshots/search.webp" aria-labelledby="mbShotSearch">
+            <img src="screenshots/search.webp" width="1770" height="1200" alt="" loading="lazy">
+          </a>
+          <figcaption id="mbShotSearch" data-i18n="mbShotSearch">Vyhľadávanie s grafom výskytu a náhľadom kontextu</figcaption>
+        </figure>
+        <figure>
+          <a href="screenshots/read.webp" aria-labelledby="mbShotRead">
+            <img src="screenshots/read.webp" width="1770" height="1200" alt="" loading="lazy">
+          </a>
+          <figcaption id="mbShotRead" data-i18n="mbShotRead">Čítanie bez rušivých panelov v sépiovom motíve</figcaption>
+        </figure>
+        <figure>
+          <a href="screenshots/navigate.webp" aria-labelledby="mbShotNavigate">
+            <img src="screenshots/navigate.webp" width="1770" height="1200" alt="" loading="lazy">
+          </a>
+          <figcaption id="mbShotNavigate" data-i18n="mbShotNavigate">Výber knihy, kapitoly a verša</figcaption>
+        </figure>
+      </div>
+    </section>
+    <p class="note">
+        <a href="privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a> ·
+        <a href="support/" data-i18n="linkSupport">Podpora</a>
+      </p>
+  </main>
+  <footer><a href="https://nasa.misia.sk">nasa.misia.sk</a></footer>
+</div>
+</body>
+</html>
