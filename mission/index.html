@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Misia.sk Missions</title>
   <link rel="icon" href="../assets/mission-icon.png">
-  <link rel="stylesheet" href="../assets/catalogue.css">
-  <script src="../assets/catalogue.js" defer></script>
+  <link rel="stylesheet" href="../assets/catalogue.css?v=20261117-2">
+  <script src="../assets/catalogue.js?v=20261117-2" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -24,9 +24,26 @@
       <div><h1>Misia.sk Missions</h1><div class="sub" data-i18n="missionSub">Žiadosti o pomoc, zbory a doklady o použití peňazí</div></div>
     </div>
     <p class="desc" data-i18n="missionDesc">Pre misijných pracovníkov a správcov zborov: zadajte žiadosť o pomoc, sledujte jej schválenie a vyplatenie a potom odfoťte doklady, ako sa peniaze použili. Funguje aj bez internetu; zmeny a fotky sa odošlú po pripojení. Po slovensky aj po anglicky.</p>
-    <div class="actions">
-        <section class="action">
-          <h2 data-i18n="apkHeading">Android APK</h2>
+    <div class="actions install-actions">
+      <section class="action android-download">
+        <h2>Android</h2>
+        <p class="testing-intro" data-i18n="playInvite">Pomôžte nám vydať aplikáciu v Google Play. Vyskúšajte ju a povedzte nám, čo funguje a čo môžeme zlepšiť.</p>
+        <details class="testing">
+          <summary><span data-i18n="getAndroid">Získať aplikáciu pre Android</span></summary>
+          <ol class="testing-steps">
+            <li>
+              <h3 data-i18n="stepGroup">Pridajte sa do skupiny testerov</h3>
+              <p data-i18n="stepGroupHelp">Do skupiny sa môže pridať každý. Otvorte jej stránku, prihláste sa účtom, ktorý používate v Obchode Play, a vyberte Pridať sa do skupiny. Ak už ste členom, prejdite na druhý krok.</p>
+              <a class="btn" target="_blank" rel="noopener" href="https://groups.google.com/g/misia-app-testers/about" data-i18n="openGroup">Otvoriť skupinu testerov</a>
+            </li>
+            <li>
+              <h3 data-i18n="stepPlay">Zapojte sa do testu a nainštalujte aplikáciu</h3>
+              <p data-i18n="stepPlayPending">Keď bude test tejto aplikácie dostupný, objaví sa tu odkaz na prihlásenie v Google Play.</p>
+            </li>
+          </ol>
+        </details>
+        <div class="apk-fallback">
+          <p class="note apk-alternative" data-i18n="apkAlternative">Chcete aplikáciu používať bez zapojenia do testu? Stiahnite si APK priamo.</p>
           <div class="buttons">
             <a class="download-badge" target="_blank" rel="noopener" data-app-download href="https://github.com/mirozahorak/misia-apps/releases/download/mission-latest/misia-missions.apk"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m17.6 9.48 1.84-3.18a.6.6 0 0 0-1.04-.6l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.7 5.7a.6.6 0 0 0-1.04.6L6.5 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52ZM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z"/></svg><span><small data-i18n="downloadApk">Stiahnuť APK</small><strong>Android</strong></span></a>
           </div>
@@ -36,14 +53,8 @@
         · <span>17. 11. 2026</span>
       </p>
           <p class="note" data-i18n="missionNote">Android 7.0 a novší. Prihlásite sa účtom misia.sk s prístupom k misijnej sekcii. Pri inštalácii APK povoľte inštaláciu z prehliadača. Pred odinštalovaním počkajte, kým sa všetko odošle.</p>
-        </section>
-        <section class="action action-secondary">
-          <h2 data-i18n="resources">Web a podpora</h2>
-          <div class="buttons">
-            <a class="btn" href="privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a>
-            <a class="btn" href="support/" data-i18n="linkSupport">Podpora</a>
-          </div>
-        </section>
+        </div>
+      </section>
     </div>
     <section class="screens">
       <h2 data-i18n="screenshots">Snímky obrazovky</h2>
@@ -64,7 +75,11 @@
     </section>
 
   </main>
-  <footer><a href="https://nasa.misia.sk">nasa.misia.sk</a></footer>
+  <footer class="app-footer">
+    <a href="privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a>
+    <a href="support/" data-i18n="linkSupport">Podpora</a>
+    <a href="https://nasa.misia.sk">nasa.misia.sk</a>
+  </footer>
 </div>
 </body>
 </html>

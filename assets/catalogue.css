@@ -36,7 +36,7 @@ h1 {
 }
 h2 { font-size: 1.13rem; line-height: 1.25; }
 a { color: var(--accent); text-underline-offset: .18em; }
-a:focus-visible, button:focus-visible {
+a:focus-visible, button:focus-visible, summary:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
@@ -75,6 +75,12 @@ header > .sub, .app-head .sub { margin-top: .5rem; }
   background: var(--surface);
 }
 .catalogue li + li { border-top: 1px solid var(--line); }
+.catalogue-group { margin-top: 2rem; }
+.catalogue-group > h2 {
+  font: 600 clamp(1.35rem, 3vw, 1.75rem)/1.2 Georgia, serif;
+}
+.catalogue-group .catalogue { margin-top: .7rem; }
+.row-copy h3 { margin: 0; font-size: 1.13rem; line-height: 1.25; }
 .catalogue li:target { background: var(--hover); }
 .app-row {
   display: grid;
@@ -87,12 +93,16 @@ header > .sub, .app-head .sub { margin-top: .5rem; }
   border-radius: .4rem;
 }
 .app-row:hover { background: var(--hover); }
-.app-row img, .app-head img { display: block; border-radius: 21%; object-fit: cover; }
+.app-row img, .app-head > div { min-width: 0; }
+.app-head h1 { overflow-wrap: anywhere; }
+.app-head img { flex: none; display: block; border-radius: 21%; object-fit: cover; }
 .app-row .sub { margin-top: .15rem; font-size: .9rem; }
 .platforms { color: var(--muted); font-size: .8rem; }
 .arrow { color: var(--accent); font-size: 1.45rem; line-height: 1; }
 .app-head { display: flex; align-items: center; gap: clamp(.8rem, 3vw, 1.5rem); }
-.app-head img { width: clamp(3.5rem, 12vw, 5.125rem); height: auto; aspect-ratio: 1; }
+.app-head > div { min-width: 0; }
+.app-head h1 { overflow-wrap: anywhere; }
+.app-head img { flex: none; width: clamp(3.5rem, 12vw, 5.125rem); height: auto; aspect-ratio: 1; }
 .desc { max-width: 69ch; margin-top: 1.25rem; }
 .actions {
   display: grid;
@@ -157,8 +167,6 @@ footer { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: .85
   .gallery figure { scroll-snap-align: start; }
 }
 
-.app-store-badge { display: block; width: fit-content; margin: 4px 0; border-radius: .4rem; }
-.app-store-badge img { display: block; height: 40px; width: auto; }
 .download-badge {
   display: inline-flex;
   align-items: center;
@@ -179,12 +187,47 @@ footer { margin-top: 2.5rem; border-top: 1px solid var(--line); padding-top: .85
 .download-badge small, .download-badge strong { display: block; }
 .download-badge small { font-size: .72rem; }
 .download-badge strong { font-size: 1.05rem; }
-.play-mark {
-  width: 20px;
-  height: 23px;
-  flex: none;
-  background: conic-gradient(from 65deg at 42% 50%, #ffcf43 0 27%, #ff5357 27% 50%, #48a6ff 50% 78%, #52d88c 78%);
-  clip-path: polygon(0 0, 100% 50%, 0 100%);
+.download-badge svg.store-mark { color: inherit; }
+.install-actions { grid-template-columns: minmax(0, 1fr); }
+.apple-download {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .75rem 1rem;
+}
+.apple-download h2 { margin: 0; }
+.web-access { margin-top: .85rem; font-size: .95rem; font-weight: 650; }
+.testing-intro { color: var(--muted); max-width: 62ch; }
+.testing { margin-top: .85rem; }
+.testing summary {
+  width: fit-content;
+  max-width: 100%;
+  border-radius: .45rem;
+  padding: .7rem .95rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 700;
+  cursor: pointer;
+}
+.testing-steps {
+  margin: .85rem 0 0;
+  padding: .15rem clamp(1.8rem, 5vw, 2.7rem) .15rem clamp(2.15rem, 6vw, 3rem);
+  border: 1px solid var(--line);
+  border-radius: .65rem;
+  background: var(--hover);
+}
+.testing-steps li { padding: .85rem 0; }
+.testing-steps li + li { border-top: 1px solid var(--line); }
+.testing-steps li::marker { color: var(--accent); font-weight: 750; }
+.testing-steps h3 { margin: 0 0 .25rem; font-size: 1rem; }
+.testing-steps p { max-width: 68ch; color: var(--muted); font-size: .95rem; }
+.testing-steps .btn { margin-top: .6rem; }
+.apk-fallback:has(#deliverytracker-download[hidden]) .apk-alternative { display: none; }
+.apk-fallback { border-top: 1px solid var(--line); margin-top: 1.05rem; padding-top: .75rem; }
+.apk-alternative { margin-top: 0; margin-bottom: .55rem; }
+.app-footer { display: flex; flex-wrap: wrap; gap: .5rem 1rem; }
+@media (max-width: 36rem) {
+  .testing summary { width: 100%; }
 }
 
 .updates-link { margin-top: 1.25rem; }

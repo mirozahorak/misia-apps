@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Misia Spevník/Songbook</title>
   <link rel="icon" href="../assets/songbook-icon.png">
-  <link rel="stylesheet" href="../assets/catalogue.css">
-  <script src="../assets/catalogue.js?v=20261117" defer></script>
+  <link rel="stylesheet" href="../assets/catalogue.css?v=20261117-2">
+  <script src="../assets/catalogue.js?v=20261117-2" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -29,19 +29,35 @@
         funguje offline, bez internetu. Vyhľadávanie, obľúbené piesne,
         nastaviteľná veľkosť písma a tmavý režim.
       </p>
+    <p class="web-access"><a href="https://nasa.misia.sk/songs" data-i18n="webSongs">Prehliadať piesne online <span aria-hidden="true">↗</span></a></p>
     <section class="updates-link" aria-label="App update emails">
       <p id="download-update-prompt" tabindex="-1" data-i18n="downloadUpdatePrompt" hidden>Chcete vedieť, keď vyjde ďalšia verzia tejto aplikácie?</p>
       <a class="btn" href="https://nasa.misia.sk/app-updates/subscribe?app=songbook&amp;locale=sk" data-update-subscription data-i18n="subscribeUpdates">Dostávať novinky o aplikáciách e-mailom</a>
     </section>
-    <div class="actions">
-        <section class="action">
-          <h2 data-i18n="storeHeading">App Store</h2>
-          <div class="buttons">
-            <a class="app-store-badge" target="_blank" rel="noopener" data-app-download href="https://apps.apple.com/app/id6823311593"><img src="../assets/app-store-sk.svg" width="120" height="40" alt="Stiahnuť v App Store" data-app-store-badge="btnSongbookAppStore"></a>
-          </div>
-        </section>
-        <section class="action">
-          <h2 data-i18n="apkHeading">Android APK</h2>
+    <div class="actions install-actions">
+      <section class="action apple-download">
+        <h2>App Store</h2>
+        <a class="download-badge" target="_blank" rel="noopener" data-app-download href="https://apps.apple.com/app/id6823311593"><svg class="store-mark" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="2.5" width="19" height="19" rx="4"/><path d="m9 6 8 14M15 6 7 20M5.5 15.5h13"/></g></svg><strong data-i18n="freeDownload">Stiahnuť zadarmo</strong></a>
+      </section>
+      <section class="action android-download">
+        <h2>Android</h2>
+        <p class="testing-intro" data-i18n="playInvite">Pomôžte nám vydať aplikáciu v Google Play. Vyskúšajte ju a povedzte nám, čo funguje a čo môžeme zlepšiť.</p>
+        <details class="testing">
+          <summary><span data-i18n="getAndroid">Získať aplikáciu pre Android</span></summary>
+          <ol class="testing-steps">
+            <li>
+              <h3 data-i18n="stepGroup">Pridajte sa do skupiny testerov</h3>
+              <p data-i18n="stepGroupHelp">Do skupiny sa môže pridať každý. Otvorte jej stránku, prihláste sa účtom, ktorý používate v Obchode Play, a vyberte Pridať sa do skupiny. Ak už ste členom, prejdite na druhý krok.</p>
+              <a class="btn" target="_blank" rel="noopener" href="https://groups.google.com/g/misia-app-testers/about" data-i18n="openGroup">Otvoriť skupinu testerov</a>
+            </li>
+            <li>
+              <h3 data-i18n="stepPlay">Zapojte sa do testu a nainštalujte aplikáciu</h3>
+              <p data-i18n="stepPlayPending">Keď bude test tejto aplikácie dostupný, objaví sa tu odkaz na prihlásenie v Google Play.</p>
+            </li>
+          </ol>
+        </details>
+        <div class="apk-fallback">
+          <p class="note apk-alternative" data-i18n="apkAlternative">Chcete aplikáciu používať bez zapojenia do testu? Stiahnite si APK priamo.</p>
           <div class="buttons">
             <a class="download-badge" target="_blank" rel="noopener" data-app-download href="https://nasa.misia.sk/app/songbook/android?v=1.0.3%2B4"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="m17.6 9.48 1.84-3.18a.6.6 0 0 0-1.04-.6l-1.88 3.24a11.46 11.46 0 0 0-8.94 0L5.7 5.7a.6.6 0 0 0-1.04.6L6.5 9.48A10.78 10.78 0 0 0 1 18h22a10.78 10.78 0 0 0-5.4-8.52ZM7 15.25a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Zm10 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z"/></svg><span><small data-i18n="downloadApk">Stiahnuť APK</small><strong>Android</strong></span></a>
           </div>
@@ -54,20 +70,8 @@
         Pri inštalácii APK povoľte „Inštalovať z neznámych zdrojov“.
         Pre iPhone a iPad je aplikácia dostupná v App Store. Prihlásenie nie je potrebné.
       </p>
-        </section>
-        <section class="action action-secondary">
-          <h2 data-i18n="resources">Web a podpora</h2>
-          <div class="buttons">
-            <a class="btn" href="https://nasa.misia.sk/songs"><span data-i18n="btnWebSongs">Webová verzia</span></a>
-          </div>
-        </section>
-        <section class="action action-secondary">
-          <h2 data-i18n="playHeading">Uzavreté testovanie v Google Play</h2>
-          <div class="buttons">
-            <a class="btn" href="https://groups.google.com/g/misia-app-testers" data-i18n="btnTesterGroup">Pridať sa do skupiny testerov</a>
-          </div>
-          <p class="note" data-i18n="playJoinPending">Pridajte sa s účtom Google, ktorý používate v Obchode Play. Prihlasovanie do testu tejto aplikácie sa otvorí po sprístupnení testovacej verzie.</p>
-        </section>
+        </div>
+      </section>
     </div>
     <section class="screens">
       <h2 data-i18n="screenshots">Snímky obrazovky</h2>
@@ -86,12 +90,12 @@
         </figure>
       </div>
     </section>
-    <p class="note">
-        <a href="privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a> ·
-        <a href="support/" data-i18n="linkSupport">Podpora</a>
-      </p>
   </main>
-  <footer><a href="https://nasa.misia.sk">nasa.misia.sk</a></footer>
+  <footer class="app-footer">
+    <a href="privacy/" data-i18n="linkPrivacy">Ochrana súkromia</a>
+    <a href="support/" data-i18n="linkSupport">Podpora</a>
+    <a href="https://nasa.misia.sk">nasa.misia.sk</a>
+  </footer>
 </div>
 </body>
 </html>
