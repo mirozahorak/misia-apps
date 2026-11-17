@@ -13,6 +13,7 @@ Apps of Misia (Slobodná ľudová misia), available for download at
 | **[Misia Rádio](radio/)** | Misia's internet radio: sermons, songs and audiobooks live, with scripture, lyrics and the week's programme | Android |
 | **[Misia Wordcast](wordcast/)** | Sermon search, offline listening, and Standard and Simple modes | [Android public test](https://github.com/mirozahorak/misia-apps/releases/download/wordcast-v1.1-2/misia-wordcast.apk), [iPhone/iPad (App Store)](https://apps.apple.com/app/id6824054088) |
 | **[DeliveryTracker](deliverytracker/)** | Equipment delivery records for churches (for authorised mission staff) | Android |
+| **[Misia.sk Missions](mission/)** | Help requests, churches and receipts showing how the money was spent (for mission workers and church leaders) | [Android](https://github.com/mirozahorak/misia-apps/releases/download/mission-latest/misia-missions.apk) |
 
 ## Privacy and support
 
@@ -26,6 +27,7 @@ Apps of Misia (Slobodná ľudová misia), available for download at
 | Misia Rádio | [privacy](https://mirozahorak.github.io/misia-apps/radio/privacy/) | [support](https://mirozahorak.github.io/misia-apps/radio/support/) |
 | Misia Wordcast | [privacy](https://mirozahorak.github.io/misia-apps/wordcast/privacy/) | [support](https://mirozahorak.github.io/misia-apps/wordcast/support/) |
 | DeliveryTracker | — | [support](https://mirozahorak.github.io/misia-apps/deliverytracker/support/) |
+| Misia.sk Missions | [privacy](https://mirozahorak.github.io/misia-apps/mission/privacy/) | [support](https://mirozahorak.github.io/misia-apps/mission/support/) |
 
 Open an app page from the catalogue to see its downloads, installation instructions and available screenshots. The macOS app is a signed and notarized DMG: open it and drag the app to Applications. Direct Android downloads are distributed as APK files. When installing,
 Android asks you to allow installing apps from your browser; this is normal
